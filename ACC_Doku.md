@@ -89,11 +89,19 @@ Die gefilterte Geschwindigkeit wird schließlich an das ACC-Steuergerät übermi
 
 Die Kalibrierung ist ein wesentlicher Prozess bei der Entwicklung eines autonomen Fahrzeugsystems, der sicherstellt, dass die Sensordaten korrekt und genau sind. Eine genaue Kalibrierung ist entscheidend, um zuverlässige Messungen zu gewährleisten und die Integrität der Datenfusion zwischen verschiedenen Sensoren wie Lidar und Kamera zu erhalten.
 
+Es ist zu beachten, dass die Kalibrierdaten standardmäßig deaktiviert sind, aber durch den Parameter "calibrate_fusion_on" am Anfang des Codes aktiviert werden können, wenn eine neue Kalibrierung erforderlich ist.
+
 Der Kalibrierungsprozess beginnt mit dem Sammeln von Daten aus bekannten Entfernungen. Dazu werden Lidar-Daten verwendet, um die tatsächlichen Positionen von Objekten zu messen. Diese bekannten Entfernungen werden dann mit den beobachteten Offsets verglichen, die sich aus der Projektion der Lidarpunkte auf die Kamerabildebene ergeben. Die Unterschiede zwischen den bekannten Entfernungen und den gemessenen Offsets werden verwendet, um eine Skalierungsfunktion zu kalibrieren, die die Projektionen korrigiert.
 
 Die Funktion calibrate_scaling_function spielt dabei eine zentrale Rolle. Sie nimmt die bekannten Entfernungen und die beobachteten Offsets als Eingabe und verwendet eine Kurvenanpassungstechnik, um die Parameter der Skalierungsfunktion zu berechnen. Diese Funktion modelliert die Beziehung zwischen Entfernung und Offset durch eine quadratische Gleichung, die eine präzise Skalierung der Lidardaten ermöglicht.
 
+Ein weiterer wichtiger Bestandteil der Kalibrierung ist die Funktion collect_calibration_data. Diese Funktion sammelt kontinuierlich Kalibrierdaten während des Fahrzeugbetriebs. Sie überwacht die Stabilität der Messungen und stellt sicher, dass die Daten innerhalb bestimmter Toleranzgrenzen liegen. Wenn stabile Messungen vorliegen, werden diese zur Kalibrierung verwendet, um die Genauigkeit der Skalierungsfunktion weiter zu verbessern.
 
+Die Kalibrierungsdaten werden in einer CSV-Datei gespeichert, um eine einfache Überprüfung und Anpassung zu ermöglichen. Die Funktion save_calibration_data speichert die gesammelten Daten, einschließlich der bekannten Entfernungen und der beobachteten Offsets. Diese Daten können später verwendet werden, um die Kalibrierungsparameter zu überprüfen oder anzupassen.
+
+Zusätzlich zu den oben genannten Funktionen stellt die Kalibrierung sicher, dass die Lidardaten korrekt auf die Kamerabildebene projiziert werden. Dies beinhaltet die Berücksichtigung von Offsets zwischen den Sensoren und die Anwendung der kalibrierten Skalierungsfunktion, um präzise Projektionen zu gewährleisten. Die genaue Kalibrierung der Sensoren ist entscheidend, um zuverlässige und konsistente Daten für die Navigation und Entscheidungsfindung des autonomen Fahrzeugs zu erhalten.
+
+Insgesamt ermöglicht die Kalibrierung eine präzise und zuverlässige Nutzung der Sensordaten, indem sie sicherstellt, dass die Messungen korrekt und konsistent sind. Dies bildet die Grundlage für die Datenfusion und weitere Verarbeitungsschritte im System und trägt wesentlich zur Genauigkeit und Effizienz des autonomen Fahrzeugs bei.
 
 
 ![Kalibrierung 1](https://raw.githubusercontent.com/TheFightAtom/Projektarbeit_ACC/master/Pictures/Kalibrierung_Fusion_Bild1.png)
@@ -132,9 +140,9 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTMxOTg3ODcsMTY3NTI2NjYxNiw1Mj
-c3NDI1MzIsLTE1ODUxNTkxNDgsLTE1NzYxMjEwOTIsMjgzMTUy
-NDcsLTE4NDExMzUzOTQsMTY0Nzc1MTg4LC0xNDU2OTk4MTkxLD
-I1NDA2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQxNzQzLC0xMTMz
-MjYxMDAxXX0=
+eyJoaXN0b3J5IjpbODkwODI0MzA0LDE2NzUyNjY2MTYsNTI3Nz
+QyNTMyLC0xNTg1MTU5MTQ4LC0xNTc2MTIxMDkyLDI4MzE1MjQ3
+LC0xODQxMTM1Mzk0LDE2NDc3NTE4OCwtMTQ1Njk5ODE5MSwyNT
+QwNjM2OTIsLTE4MDQyMDY3MTIsLTI0NDY0MTc0MywtMTEzMzI2
+MTAwMV19
 -->
