@@ -58,7 +58,7 @@ Die gesamte Implementierung der Lidar-Punktprojektion erfolgt in mehreren Funkti
 Zusammen ermöglichen diese Schritte eine präzise und zuverlässige Projektion der Lidar-Daten auf die Bildebene der Kamera, was die Grundlage für die weitere Verarbeitung und Fusion der Sensordaten bildet.
 
 
-## 2.3 Mittellinienerkennung
+## 2.3 Mittellinienerkennung & Streckenbegrenzung
 
 Die Mittellinienerkennung ist eine wichtige Systemkomponente, die die Erkennung und Verfolgung der Fahrspur ermöglicht, um die von den Lidarsensoren erfassten Punkte zu analysieren und sicherzustellen, dass sie sich innerhalb der Fahrspur befinden. Diese Funktion dient dazu, eine erkannte Mittellinie zu verarbeiten und daraus die seitlichen Begrenzungslinien der Fahrspur abzuleiten. Zum Zeitpunkt der Projekteinreichung wird die Mittellinie direkt verwendet, könnte aber in Zukunft durch die Erkennung der Seitenlinien ersetzt werden, um eine genauere und robustere Spurführung zu ermöglichen.
 
@@ -69,9 +69,6 @@ Nach der Bestimmung der Mittellinie werden die seitlichen Begrenzungslinien math
 Ein wesentlicher Teil des Codes in diesem Abschnitt ist der Visualisierung der Mittellinie und der Begrenzungslinien gewidmet. Die Punkte der Linien werden als Pfadnachrichten veröffentlicht, die dann von anderen Komponenten des Systems zur Visualisierung und weiteren Verarbeitung verwendet werden können. Die Mittellinie sowie die linke und rechte Begrenzungslinie werden kontinuierlich aktualisiert und veröffentlicht, um eine Echtzeitdarstellung des Fahrwegs zu ermöglichen.
 
 
-## 2.4 Streckenbegrenzung
-
-~~Dieses Unterkapitel beschreibt die Erkennung und Verfolgung der seitlichen Streckenbegrenzungen. Die Informationen über die Streckenbegrenzungen werden verwendet, um das Fahrzeug sicher auf der Fahrspur zu halten und mögliche Kollisionen zu vermeiden. Es wird erläutert, wie die Begrenzungslinien basierend auf den Lidar-Daten erkannt und extrapoliert werden.~~
 
 ## 2.4 Geschwindigkeitsberechnung
 
@@ -126,7 +123,7 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDQzMjExNzksLTE1ODUxNTkxNDgsLT
+eyJoaXN0b3J5IjpbLTE5NzAzMDc0MzAsLTE1ODUxNTkxNDgsLT
 E1NzYxMjEwOTIsMjgzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nzc1
 MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMi
 wtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX0=
