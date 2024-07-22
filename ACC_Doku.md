@@ -87,7 +87,13 @@ Die gefilterte Geschwindigkeit wird schließlich an das ACC-Steuergerät übermi
 
 ## 2.5 Kalibrierung
 
-~~Hier wird der Kalibrierungsprozess des Systems erläutert. Es wird beschrieben, wie die Lidar-Daten kalibriert werden, um genaue Messungen zu gewährleisten, und wie die Kalibrierungsdaten gesammelt und verarbeitet werden. Die Kalibrierung ist entscheidend für die Genauigkeit und Zuverlässigkeit des gesamten Systems.~~
+Die Kalibrierung ist ein wesentlicher Prozess bei der Entwicklung eines autonomen Fahrzeugsystems, der sicherstellt, dass die Sensordaten korrekt und genau sind. Eine genaue Kalibrierung ist entscheidend, um zuverlässige Messungen zu gewährleisten und die Integrität der Datenfusion zwischen verschiedenen Sensoren wie Lidar und Kamera zu erhalten.
+
+Der Kalibrierungsprozess beginnt mit dem Sammeln von Daten aus bekannten Entfernungen. Dazu werden Lidar-Daten verwendet, um die tatsächlichen Positionen von Objekten zu messen. Diese bekannten Entfernungen werden dann mit den beobachteten Offsets verglichen, die sich aus der Projektion der Lidarpunkte auf die Kamerabildebene ergeben. Die Unterschiede zwischen den bekannten Entfernungen und den gemessenen Offsets werden verwendet, um eine Skalierungsfunktion zu kalibrieren, die die Projektionen korrigiert.
+
+Die Funktion calibrate_scaling_function spielt dabei eine zentrale Rolle. Sie nimmt die bekannten Entfernungen und die beobachteten Offsets als Eingabe und verwendet eine Kurvenanpassungstechnik, um die Parameter der Skalierungsfunktion zu berechnen. Diese Funktion modelliert die Beziehung zwischen Entfernung und Offset durch eine quadratische Gleichung, die eine präzise Skalierung der Lidardaten ermöglicht.
+
+
 
 
 ![Kalibrierung 1](https://raw.githubusercontent.com/TheFightAtom/Projektarbeit_ACC/master/Pictures/Kalibrierung_Fusion_Bild1.png)
@@ -95,7 +101,7 @@ Die gefilterte Geschwindigkeit wird schließlich an das ACC-Steuergerät übermi
 
 ## 2.6 Gesamtumsetzung / main
 
-~~Dieses Unterkapitel beschreibt die Integration aller zuvor erläuterten Komponenten in einem Gesamtprozess. Es wird detailliert erläutert, wie die verschiedenen Sensordaten zusammengeführt und verarbeitet werden, um eine zuverlässige und effiziente Navigation des autonomen Fahrzeugs zu gewährleisten. Hier wird auch der Ablauf der Hauptverarbeitungsroutine dargestellt, die die kontinuierliche Erfassung, Verarbeitung und Entscheidung ermöglicht.~~
+~~Dieses Unterkapitel beschreibt die Integration aller zuvor erläuterten Komponenten in einem Gesamtprozess. Es wird detailliert erläutert, wie die verschiedenen Sensordaten zusammengeführt und verarbeitet werden, um eine zuverlässige und effiziente Navigation des autonomen Fahrzeugs zu gewährleisten. Hier wird auch der Ablauf der Hauptverarbeitungsroutine dargestellt, die die kontinuierliche Erfassung, Verarbeitung und Entscheidung ermöglicht. HIER AUCH BESCHREIBEN OBJEKTERKENNUNG UND VISUALISIERUNG CLUSTER!!!~~
 
 
 
@@ -126,9 +132,9 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwODM3OTAyNywxNjc1MjY2NjE2LDUyNz
-c0MjUzMiwtMTU4NTE1OTE0OCwtMTU3NjEyMTA5MiwyODMxNTI0
-NywtMTg0MTEzNTM5NCwxNjQ3NzUxODgsLTE0NTY5OTgxOTEsMj
-U0MDYzNjkyLC0xODA0MjA2NzEyLC0yNDQ2NDE3NDMsLTExMzMy
-NjEwMDFdfQ==
+eyJoaXN0b3J5IjpbLTE2MTMxOTg3ODcsMTY3NTI2NjYxNiw1Mj
+c3NDI1MzIsLTE1ODUxNTkxNDgsLTE1NzYxMjEwOTIsMjgzMTUy
+NDcsLTE4NDExMzUzOTQsMTY0Nzc1MTg4LC0xNDU2OTk4MTkxLD
+I1NDA2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQxNzQzLC0xMTMz
+MjYxMDAxXX0=
 -->
