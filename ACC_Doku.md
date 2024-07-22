@@ -22,12 +22,10 @@ Die Integration dieser Sensoren erfolgt durch eine Kombination von ROS-Nachricht
 
 Diese Dokumentation beschreibt die Implementierung des Systems, die verwendeten Algorithmen zur Sensorfusion und die durchgeführten Tests zur Validierung der Ergebnisse. Ziel ist die Entwicklung eines zuverlässigen und effizienten Objekterkennungssystems für autonome Modellfahrzeuge.
 
-Die Dokumentation folgt strukturell dem Code, beschreibt aber nicht die genaue Implementierung in Python bzw. ROS, für die eine ausführliche Dokumentation direkt im Code durch Kommentare gewährleistet ist.
-
 
 # 2. ACC / Integration Lidar / Fusion Lidar mit Kamera
 
-~~Dieses Kapitel beschreibt die verschiedenen Aspekte der Implementierung der ACC/Lidar/Kamera Funktionen für das autonome Modellfahrzeug. Es werden die einzelnen Komponenten des Systems detailliert erläutert, einschließlich ihrer Initialisierung, der Lidar-Punkt-Projektion, der Mittellinienerkennung, der Streckenbegrenzung, der Geschwindigkeitsberechnung, der Visualisierung, der Objekterkennung, der Kalibrierung und schließlich der Integration all dieser Komponenten im Gesamtsystem.~~
+Dieses Kapitel beschreibt die verschiedenen Aspekte der Implementierung der ACC Funktionen, der Integration des Lidars als auch die Fusion von Lidar mit der Kamera für das autonome Modellfahrzeug. Es werden die einzelnen Komponenten des Systems detailliert erläutert. Die Dokumentation folgt strukturell dem Code, beschreibt aber nicht die genaue Implementierung in Python bzw. ROS, für die eine ausführliche Dokumentation direkt im Code durch Kommentare gewährleistet ist.
 
 ## 2.1 Initialisierungen
 
@@ -102,7 +100,7 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDExMzUzOTQsMTY0Nzc1MTg4LC0xND
-U2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQx
-NzQzLC0xMTMzMjYxMDAxXX0=
+eyJoaXN0b3J5IjpbLTk2MTk2NDk0NSwtMTg0MTEzNTM5NCwxNj
+Q3NzUxODgsLTE0NTY5OTgxOTEsMjU0MDYzNjkyLC0xODA0MjA2
+NzEyLC0yNDQ2NDE3NDMsLTExMzMyNjEwMDFdfQ==
 -->
