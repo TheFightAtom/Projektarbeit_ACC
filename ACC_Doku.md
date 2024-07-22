@@ -114,8 +114,23 @@ Die Hauptlogik der Datenverarbeitung erfolgt in zwei Varianten, abhängig von de
 
 In der ersten Variante, bei der use_cluster_code_without_detection aktiviert ist, werden die Lidardaten direkt zur Bildung von Clustern verarbeitet. Die Clusterbildung erfolgt durch Gruppierung von Punkten, die räumlich nahe beieinander liegen. Diese Punkte werden anhand ihrer x- und y-Position im Raum gruppiert, wobei ein bestimmter Abstand nicht überschritten werden darf, um als zusammenhängendes Cluster zu gelten.
 
+Nach der Clusterbildung wird das beste Cluster ausgewählt. Dies ist das Cluster, das am nächsten zur Mitte der Fahrspur liegt. Die Auswahl erfolgt durch Berechnung des durchschnittlichen Abstands der Punkte im Cluster zur Mittellinie. Das beste Cluster wird dann verwendet, um den aktuellen Abstand zum vorausfahrenden Fahrzeug und dessen Geschwindigkeit zu berechnen. Diese Werte werden dann gefiltert und angezeigt.
 
+In der zweiten Variante, bei der die Objekterkennung integriert ist, werden die Lidardaten mit den erkannten Objekten der Kamera kombiniert. Jedes erkannte Objekt wird auf mögliche zugehörige Lidarpunkte überprüft, um die genaue Position und Entfernung zu bestimmen. Diese Datenfusion ermöglicht eine genauere Erkennung und Verfolgung der Objekte. Auch hier wird das beste Cluster aus den erkannten Fahrzeugen ausgewählt und weiterverarbeitet.
 
+Ein wichtiger Schritt in beiden Varianten ist die Transformation der Lidarpunkte in das Kamerakoordinatensystem. Diese Transformation ermöglicht die Projektion der Lidardaten auf die Kamerabildebene und unterstützt die visuelle Überprüfung und Kalibrierung der Sensordaten. Die Funktion transform_and_project_lidar_points übernimmt diese Aufgabe und sorgt für die korrekte Zuordnung der Punkte.
+
+Ein entscheidender Teil der Hauptlogik ist die Behandlung von Fällen, in denen kein Objekt erkannt wird. In solchen Fällen wird die Entfernung auf einen Standardwert von 999 Metern und die Geschwindigkeit des vorausfahrenden Fahrzeugs auf 0.0 m/s gesetzt. Diese Werte sind für die Steuerung wichtig, da sie signalisieren, dass kein Fahrzeug in unmittelbarer Nähe erkannt wurde. Der Regler kann dann geeignete Maßnahmen ergreifen, z. B. die Geschwindigkeit anpassen oder die aktuelle Geschwindigkeit beibehalten.
+
+Zusätzlich zu diesen Hauptaspekten gibt es zwei wichtige Funktionen, die spezifische Aufgaben innerhalb der process_data-Logik erfüllen:
+
+Hinzufügen der Geschwindigkeit zum Multiarray:
+Die Funktion publish_multiarray_with_distance erweitert die empfangenen Multiarray-Daten um die berechnete Geschwindigkeit der detektierten Objekte. Diese Funktion nimmt die detektierten Objekte und deren berechnete Entfernungen und veröffentlicht diese Informationen in strukturierter Form. Sie erzeugt eine Float32MultiArray-Nachricht, die die Daten der erkannten Objekte und deren Entfernungen enthält. Diese Nachricht wird dann über einen ROS Publisher veröffentlicht, so dass andere Komponenten des Systems auf diese Informationen zugreifen und sie für die Entscheidungsfindung nutzen können. Diese Erweiterung stellt sicher, dass alle relevanten Informationen für die Objekterkennung und die adaptive Geschwindigkeitsregelung (ACC) zur Verfügung stehen.
+
+Visualisierung des Clusters:
+Die Funktion publish_best_cluster_as_laserscan dient zur Visualisierung des besten erkannten Clusters. Sie konvertiert das ausgewählte Cluster in ein LaserScan-Nachrichtenformat, das dann über einen ROS-Publisher veröffentlicht wird. Diese Visualisierung ermöglicht die Überwachung und Überprüfung der Position und Struktur des besten Clusters in der Umgebung des Fahrzeugs. Diese Visualisierung ist besonders hilfreich bei der Entwicklung und Fehlersuche, da sie ein visuelles Feedback über die erkannten Objekte und ihre relativen Positionen bietet.
+
+Zusammenfassend beschreibt die Funktion process_data die zentrale Logik der Datenverarbeitung im autonomen Fahrzeugsystem. Sie integriert verschiedene Datenquellen, führt Clustering und Selektion durch, transformiert die Daten und stellt sicher, dass die Steuerbefehle auf Basis der aktuellsten und genauesten Informationen generiert werden. Diese Funktion ist das Herzstück der autonomen Fahrzeugsteuerung und gewährleistet eine zuverlässige und effiziente Navigation.
 
 
 # 3. Radar Test
@@ -145,7 +160,7 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzMjg5MTA1OCw2OTE3ODI0ODksMTY3NT
+eyJoaXN0b3J5IjpbLTQ5MzE3MzU2Myw2OTE3ODI0ODksMTY3NT
 I2NjYxNiw1Mjc3NDI1MzIsLTE1ODUxNTkxNDgsLTE1NzYxMjEw
 OTIsMjgzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nzc1MTg4LC0xND
 U2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQx
