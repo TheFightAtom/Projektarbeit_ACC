@@ -85,15 +85,7 @@ Ein wichtiger Aspekt der Geschwindigkeitsberechnung ist die Anwendung eines PT1-
 Die gefilterte Geschwindigkeit wird schließlich an das ACC-Steuergerät übermittelt, das die Geschwindigkeit des autonomen Fahrzeugs entsprechend regelt. Durch den Einsatz des PT1-Filters wird sichergestellt, dass das Steuergerät mit stabilen und zuverlässigen Geschwindigkeitswerten arbeitet, was zu einer gleichmäßigen und komfortablen Fahrweise führt. Die kontinuierliche Berechnung und Filterung der Geschwindigkeit ist daher ein wesentlicher Bestandteil des ACC-Systems, das die Sicherheit und Effizienz des autonomen Fahrzeugs gewährleistet.
 
 
-## 2.5 Visualisierung
-
-~~In diesem Abschnitt wird die Visualisierung der Sensordaten und der Ergebnisse der Datenverarbeitung erläutert. Es wird beschrieben, wie die Lidar-Punkte und die erkannten Objekte auf den Kamerabildern visualisiert werden, um eine anschauliche Darstellung der Umgebung zu ermöglichen. Diese Visualisierung unterstützt die Entwicklung und Fehlerbehebung des Systems.~~
-
-## 2.6 Objekterkennung
-
-~~Dieses Unterkapitel behandelt die Integration der Objekterkennung in das System. Es wird beschrieben, wie die von der Kamera erkannten Objekte mit den Lidar-Daten kombiniert werden, um genaue Positions- und Abstandsangaben zu erhalten. Die Objekterkennung spielt eine entscheidende Rolle bei der Navigation und Entscheidungsfindung des autonomen Fahrzeugs.~~
-
-## 2.7 Kalibrierung
+## 2.5 Kalibrierung
 
 ~~Hier wird der Kalibrierungsprozess des Systems erläutert. Es wird beschrieben, wie die Lidar-Daten kalibriert werden, um genaue Messungen zu gewährleisten, und wie die Kalibrierungsdaten gesammelt und verarbeitet werden. Die Kalibrierung ist entscheidend für die Genauigkeit und Zuverlässigkeit des gesamten Systems.~~
 
@@ -101,7 +93,7 @@ Die gefilterte Geschwindigkeit wird schließlich an das ACC-Steuergerät übermi
 ![Kalibrierung 1](https://raw.githubusercontent.com/TheFightAtom/Projektarbeit_ACC/master/Pictures/Kalibrierung_Fusion_Bild1.png)
 ![Kalibrierung 2](https://raw.githubusercontent.com/TheFightAtom/Projektarbeit_ACC/master/Pictures/Kalibrierung_Fusion_Bild2.png)
 
-## 2.8 Gesamtumsetzung / main
+## 2.6 Gesamtumsetzung / main
 
 ~~Dieses Unterkapitel beschreibt die Integration aller zuvor erläuterten Komponenten in einem Gesamtprozess. Es wird detailliert erläutert, wie die verschiedenen Sensordaten zusammengeführt und verarbeitet werden, um eine zuverlässige und effiziente Navigation des autonomen Fahrzeugs zu gewährleisten. Hier wird auch der Ablauf der Hauptverarbeitungsroutine dargestellt, die die kontinuierliche Erfassung, Verarbeitung und Entscheidung ermöglicht.~~
 
@@ -134,8 +126,9 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3NTI2NjYxNiw1Mjc3NDI1MzIsLTE1OD
-UxNTkxNDgsLTE1NzYxMjEwOTIsMjgzMTUyNDcsLTE4NDExMzUz
-OTQsMTY0Nzc1MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5MiwtMT
-gwNDIwNjcxMiwtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX0=
+eyJoaXN0b3J5IjpbMjEwODM3OTAyNywxNjc1MjY2NjE2LDUyNz
+c0MjUzMiwtMTU4NTE1OTE0OCwtMTU3NjEyMTA5MiwyODMxNTI0
+NywtMTg0MTEzNTM5NCwxNjQ3NzUxODgsLTE0NTY5OTgxOTEsMj
+U0MDYzNjkyLC0xODA0MjA2NzEyLC0yNDQ2NDE3NDMsLTExMzMy
+NjEwMDFdfQ==
 -->
