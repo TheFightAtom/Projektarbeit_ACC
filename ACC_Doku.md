@@ -25,7 +25,7 @@ Diese Dokumentation beschreibt die Implementierung des Systems, die verwendeten 
 
 # 2. ACC / Integration Lidar / Fusion Lidar mit Kamera
 
-Dieses Kapitel beschreibt die verschiedenen Aspekte der Implementierung der ACC Funktionen, der Integration des Lidars als auch die Fusion von Lidar mit der Kamera für das autonome Modellfahrzeug. Es werden die einzelnen Komponenten des Systems detailliert erläutert. Die Dokumentation folgt strukturell dem Code, beschreibt aber nicht die genaue Implementierung in Python bzw. ROS, für die eine ausführliche Dokumentation direkt im Code durch Kommentare gewährleistet ist.
+Dieses Kapitel beschreibt die verschiedenen Aspekte der Implementierung der ACC-Funktionen, die Integration des Lidars sowie die Fusion des Lidars mit der Kamera des autonomen Modellfahrzeugs. Die einzelnen Komponenten des Systems werden detailliert beschrieben. Die Dokumentation folgt strukturell dem Code, beschreibt aber nicht die genaue Implementierung in Python bzw. ROS, für die eine ausführliche Dokumentation direkt im Code durch Kommentare gewährleistet ist.
 
 ## 2.1 Initialisierungen
 
@@ -100,7 +100,7 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2MTk2NDk0NSwtMTg0MTEzNTM5NCwxNj
-Q3NzUxODgsLTE0NTY5OTgxOTEsMjU0MDYzNjkyLC0xODA0MjA2
-NzEyLC0yNDQ2NDE3NDMsLTExMzMyNjEwMDFdfQ==
+eyJoaXN0b3J5IjpbMjgzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nz
+c1MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcx
+MiwtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX0=
 -->
