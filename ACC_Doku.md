@@ -54,8 +54,8 @@ Zusammenfassend lässt sich sagen, dass das Radar zwar prinzipiell für unsere A
 
 Text
 
-## Weiterführende Arbeit
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjU0MDYzNjkyLC0xODA0MjA2NzEyLC0yND
-Q2NDE3NDMsLTExMzMyNjEwMDFdfQ==
+eyJoaXN0b3J5IjpbLTIwODI0MjAyMjksMjU0MDYzNjkyLC0xOD
+A0MjA2NzEyLC0yNDQ2NDE3NDMsLTExMzMyNjEwMDFdfQ==
 -->
