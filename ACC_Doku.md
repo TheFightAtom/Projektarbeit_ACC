@@ -68,6 +68,8 @@ Nach der Bestimmung der Mittellinie werden die seitlichen Begrenzungslinien math
 
 Ein wesentlicher Teil des Codes in diesem Abschnitt ist der Visualisierung der Mittellinie und der Begrenzungslinien gewidmet. Die Punkte der Linien werden als Pfadnachrichten veröffentlicht, die dann von anderen Komponenten des Systems zur Visualisierung und weiteren Verarbeitung verwendet werden können. Die Mittellinie sowie die linke und rechte Begrenzungslinie werden kontinuierlich aktualisiert und veröffentlicht, um eine Echtzeitdarstellung des Fahrwegs zu ermöglichen.
 
+
+
 ## 2.2 Lidar-Punkt-Projektion
 
 ~~Hier wird die Projektion der Lidar-Punkte auf die Bildebene der Kamera erläutert. Dieser Prozess umfasst die Transformation der Lidar-Daten in das Kamerakoordinatensystem und die Anwendung einer Kalibrierungsfunktion, um die Punkte korrekt zu skalieren und zu positionieren. Diese Projektion ist entscheidend für die Fusion der Sensordaten und die nachfolgende Verarbeitung.~~
@@ -129,8 +131,8 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMDUyODU4ODIsLTE1ODUxNTkxNDgsLT
-E1NzYxMjEwOTIsMjgzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nzc1
-MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMi
-wtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX0=
+eyJoaXN0b3J5IjpbLTI2MDY0OTE3NCwtMTU4NTE1OTE0OCwtMT
+U3NjEyMTA5MiwyODMxNTI0NywtMTg0MTEzNTM5NCwxNjQ3NzUx
+ODgsLTE0NTY5OTgxOTEsMjU0MDYzNjkyLC0xODA0MjA2NzEyLC
+0yNDQ2NDE3NDMsLTExMzMyNjEwMDFdfQ==
 -->
