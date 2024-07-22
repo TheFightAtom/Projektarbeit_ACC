@@ -61,14 +61,17 @@ Zusammen ermöglichen diese Schritte eine präzise und zuverlässige Projektion 
 ## 2.3 Mittellinienerkennung & Streckenbegrenzung
 
 
-Die Mittellinien- und Fahrspurbegrenzungserkennung ist ein wesentlicher Bestandteil des Systems, um die von den Lidarsensoren erfassten Punkte zu analysieren und sicherzustellen, dass sie sich innerhalb der Fahrspur befinden. Diese Funktion verwendet eine erkannte Mittellinie und leitet daraus die seitlichen Begrenzungslinien der Fahrspur ab. Dies ist wichtig, um sicherzustellen, dass nur relevante Punkte für die Objekterkennung und andere Funktionen des autonomen Fahrzeugs berücksichtigt werden und störende Objekte außerhalb der Fahrspur ausgeblendet werden.
+Die Mittellinien- und Streckenbegrenzungserkennung ist ein wesentlicher Bestandteil des Systems, um die von den Lidarsensoren erfassten Punkte zu analysieren und sicherzustellen, dass sie sich innerhalb der Fahrspur befinden. Diese Funktion verwendet eine erkannte Mittellinie und leitet daraus die seitlichen Begrenzungslinien der Fahrspur ab. Dies ist wichtig, um sicherzustellen, dass nur relevante Punkte für die Objekterkennung und andere Funktionen des autonomen Fahrzeugs berücksichtigt werden und störende Objekte außerhalb der Fahrspur ausgeblendet werden.
 
 Die Hauptaufgabe der Mittellinienerkennung besteht darin, die Koordinaten der Mittellinie (x_ref und y_ref) zu verarbeiten und daraus die seitlichen Begrenzungen der Fahrspur zu bestimmen. Die Funktion update_boundaries übernimmt diese Aufgabe, indem sie die Mittellinienpunkte extrapoliert und die linken und rechten Begrenzungslinien berechnet. Diese Begrenzungslinien werden durch eine feste Verschiebung der Mittellinienpunkte um einen bestimmten Abstand nach links und rechts erzeugt.
 
-Die Mittellinie selbst wird ständig aktualisiert und ihre Punkte werden zur Bestimmung der seitlichen Begrenzungslinien verwendet. Dies geschieht, indem die Punkte der Mittellinie nach links und rechts verschoben werden, um die Grenzen des Gleises zu markieren. Diese Linien dienen als Referenz, um zu überprüfen, ob die von den Lidar-Sensoren erfassten Punkte innerhalb der Fahrspur liegen. Dies ist wichtig, um sicherzustellen, dass nur relevante Objekte erkannt und verfolgt werden, während störende Objekte außerhalb der Fahrspur ignoriert werden.
+Die Mittellinie selbst wird ständig aktualisiert und ihre Punkte werden verwendet, um die seitlichen Begrenzungen zu bestimmen. Dazu werden die Punkte der Mittellinie nach links und rechts verschoben, um die Grenzen der Fahrspur zu markieren. Diese Linien dienen als Referenz, um zu überprüfen, ob die von den Lidar-Sensoren erfassten Punkte innerhalb der Fahrspur liegen. Dies ist wichtig, um sicherzustellen, dass nur relevante Objekte erkannt und verfolgt werden, während störende Objekte außerhalb der Fahrspur ignoriert werden.
 
+Ein großer Teil des Codes in diesem Abschnitt dient der Visualisierung der Mittellinie und der seitlichen Begrenzungslinien. Die Punkte dieser Linien werden als Pfadnachrichten veröffentlicht, die dann von anderen Systemkomponenten zur Visualisierung und Weiterverarbeitung verwendet werden können. Die kontinuierliche Veröffentlichung dieser Linien ermöglicht eine Echtzeitdarstellung der Fahrspur, die für die Navigation und Entscheidungsfindung des Fahrzeugs unerlässlich ist.
 
+Ein wichtiger Bestandteil dieses Prozesses ist die Funktion detect_object_within_boundaries, die überprüft, ob ein von den Lidar-Sensoren erfasster Punkt innerhalb der definierten Fahrspurgrenzen liegt. Diese Funktion erhält als Eingabe den Abstand und den Winkel des detektierten Objektes und berechnet dessen x- und y-Koordinaten. Anschließend wird geprüft, ob diese Koordinaten innerhalb der linken und rechten Begrenzungslinie liegen. Ist dies der Fall, wird der Punkt als innerhalb des Fahrwegs liegend betrachtet und weiterverarbeitet, andernfalls wird er ignoriert.
 
+Zusammenfassend lässt sich sagen, dass die Mittellinien- und Fahrspurbegrenzungserkennung eine effektive Filterung der von den Lidarsensoren erfassten Punkte ermöglicht, indem sichergestellt wird, dass nur Punkte innerhalb der Fahrspur berücksichtigt werden. Dies trägt zur Genauigkeit und Zuverlässigkeit der Objekterkennung und anderer Funktionen des autonomen Fahrzeugs bei. In Zukunft könnte diese Funktion durch die direkte Erkennung von Seitenlinien weiter verbessert werden, um eine noch präzisere Spurführung zu ermöglichen.
 
 
 ## 2.4 Geschwindigkeitsberechnung
@@ -124,8 +127,8 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyMzM5OTI1MCwtMTU4NTE1OTE0OCwtMT
-U3NjEyMTA5MiwyODMxNTI0NywtMTg0MTEzNTM5NCwxNjQ3NzUx
-ODgsLTE0NTY5OTgxOTEsMjU0MDYzNjkyLC0xODA0MjA2NzEyLC
-0yNDQ2NDE3NDMsLTExMzMyNjEwMDFdfQ==
+eyJoaXN0b3J5IjpbNTI3NzQyNTMyLC0xNTg1MTU5MTQ4LC0xNT
+c2MTIxMDkyLDI4MzE1MjQ3LC0xODQxMTM1Mzk0LDE2NDc3NTE4
+OCwtMTQ1Njk5ODE5MSwyNTQwNjM2OTIsLTE4MDQyMDY3MTIsLT
+I0NDY0MTc0MywtMTEzMzI2MTAwMV19
 -->
