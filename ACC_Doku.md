@@ -94,7 +94,7 @@ Zusammenfassend lässt sich sagen, dass die Mittellinien- und Fahrspurbegrenzung
 ![Kalibrierung 1](https://raw.githubusercontent.com/TheFightAtom/Projektarbeit_ACC/master/Pictures/Kalibrierung_Fusion_Bild1.png)
 ![Kalibrierung 2](https://raw.githubusercontent.com/TheFightAtom/Projektarbeit_ACC/master/Pictures/Kalibrierung_Fusion_Bild2.png)
 
-## 2.9 Gesamtumsetzung / main
+## 2.8 Gesamtumsetzung / main
 
 ~~Dieses Unterkapitel beschreibt die Integration aller zuvor erläuterten Komponenten in einem Gesamtprozess. Es wird detailliert erläutert, wie die verschiedenen Sensordaten zusammengeführt und verarbeitet werden, um eine zuverlässige und effiziente Navigation des autonomen Fahrzeugs zu gewährleisten. Hier wird auch der Ablauf der Hauptverarbeitungsroutine dargestellt, die die kontinuierliche Erfassung, Verarbeitung und Entscheidung ermöglicht.~~
 
@@ -127,8 +127,8 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTI3NzQyNTMyLC0xNTg1MTU5MTQ4LC0xNT
-c2MTIxMDkyLDI4MzE1MjQ3LC0xODQxMTM1Mzk0LDE2NDc3NTE4
-OCwtMTQ1Njk5ODE5MSwyNTQwNjM2OTIsLTE4MDQyMDY3MTIsLT
-I0NDY0MTc0MywtMTEzMzI2MTAwMV19
+eyJoaXN0b3J5IjpbLTc5Mzc5NjU3MSw1Mjc3NDI1MzIsLTE1OD
+UxNTkxNDgsLTE1NzYxMjEwOTIsMjgzMTUyNDcsLTE4NDExMzUz
+OTQsMTY0Nzc1MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5MiwtMT
+gwNDIwNjcxMiwtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX0=
 -->
