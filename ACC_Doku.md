@@ -104,7 +104,7 @@ Die Kalibrierungsdaten werden in einer CSV-Datei gespeichert, um eine einfache �
 Insgesamt ermöglicht die Kalibrierung eine präzise und zuverlässige Nutzung der Sensordaten, indem sie sicherstellt, dass die Messungen korrekt und konsistent sind. Dies bildet die Grundlage für die Datenfusion und weitere Verarbeitungsschritte im System und trägt wesentlich zur Genauigkeit und Effizienz des autonomen Fahrzeugs bei.
 
 
-## 2.6 Gesamtumsetzung / main
+## 2.6 Hauptlogik / Ablauf
 
 ~~Dieses Unterkapitel beschreibt die Integration aller zuvor erläuterten Komponenten in einem Gesamtprozess. Es wird detailliert erläutert, wie die verschiedenen Sensordaten zusammengeführt und verarbeitet werden, um eine zuverlässige und effiziente Navigation des autonomen Fahrzeugs zu gewährleisten. Hier wird auch der Ablauf der Hauptverarbeitungsroutine dargestellt, die die kontinuierliche Erfassung, Verarbeitung und Entscheidung ermöglicht. HIER AUCH BESCHREIBEN OBJEKTERKENNUNG UND VISUALISIERUNG CLUSTER!!!~~
 
@@ -137,9 +137,9 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5OTYxNDExNiwxNjc1MjY2NjE2LDUyNz
-c0MjUzMiwtMTU4NTE1OTE0OCwtMTU3NjEyMTA5MiwyODMxNTI0
-NywtMTg0MTEzNTM5NCwxNjQ3NzUxODgsLTE0NTY5OTgxOTEsMj
-U0MDYzNjkyLC0xODA0MjA2NzEyLC0yNDQ2NDE3NDMsLTExMzMy
-NjEwMDFdfQ==
+eyJoaXN0b3J5IjpbNjkxNzgyNDg5LDE2NzUyNjY2MTYsNTI3Nz
+QyNTMyLC0xNTg1MTU5MTQ4LC0xNTc2MTIxMDkyLDI4MzE1MjQ3
+LC0xODQxMTM1Mzk0LDE2NDc3NTE4OCwtMTQ1Njk5ODE5MSwyNT
+QwNjM2OTIsLTE4MDQyMDY3MTIsLTI0NDY0MTc0MywtMTEzMzI2
+MTAwMV19
 -->
