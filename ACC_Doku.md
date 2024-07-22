@@ -45,9 +45,9 @@ Insgesamt bilden die beschriebenen Initialisierungen und Einstellungen die Grund
 
 ## 2.2 Lidar-Punkt-Projektion
 
-Die Lidar-Punktprojektion ist eine zentrale Komponente des Systems, die es ermöglicht, die von den Lidar-Sensoren erfassten Daten auf die Bildebene der Kamera zu projizieren. 
+Die Lidar-Punktprojektion ist eine zentrale Komponente des Systems, die es ermöglicht, die von den Lidar-Sensoren erfassten Daten auf die Bildebene der Kamera zu projizieren bzw. Lidar und Kamera zu fusionieren.
 
-Ein wichtiger Aspekt der Lidarpunktprojektion ist die Skalierung. Da die Entfernung der Objekte zum Lidar-Sensor variiert, wird eine dynamische Skalierungsfunktion verwendet, um die Punkte korrekt auf die Kamerabildebene zu projizieren. Die Skalierungsfunktion wird durch eine Kalibrierung bestimmt, bei der bekannte Entfernungen und beobachtete Offsets verwendet werden, um die Parameter der Funktion zu berechnen. Diese Funktion sorgt dafür, dass die Punkte proportional zur Entfernung skaliert werden, was eine realistische und genaue Darstellung der Lidardaten im Kamerabild ermöglicht.
+Ein wichtiger Aspekt der Lidarpunktprojektion ist die Skalierung. Da die Entfernung der Objekte zum Lidar-Sensor variiert, wird eine dynamische Skalierungsfunktion verwendet, um die Punkte korrekt auf die Kamerabildebene zu projizieren. Die Skalierungsfunktion wird durch eine Kalibrierung bestimmt, bei der bekannte Entfernungen und beobachtete Offsets verwendet werden, um die Parameter der Funktion zu berechnen. Diese Funktion sorgt dafür, dass die Punkte proportional zur Entfernung skaliert werden, was eine realistische und genaue Darstellung der Lidardaten im Kamerabild ermöglicht. Wie die 
 
 Nach der Skalierung erfolgt die Projektion der Lidarpunkte auf die Bildebene der Kamera. Hierbei wird die Kameramatrix verwendet, um die dreidimensionalen Lidarkoordinaten in zweidimensionale Pixelkoordinaten zu transformieren. Dieser Schritt ist entscheidend, da er die räumliche Information der Lidar-Daten in das Koordinatensystem der Kamera überträgt. Die Kameramatrix, die durch Kalibrierdaten definiert wird, spielt dabei eine zentrale Rolle, da sie die interne Geometrie und die optischen Eigenschaften der Kamera berücksichtigt.
 
@@ -123,7 +123,7 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0ODIzMjUwOSwtMTU3NjEyMTA5MiwyOD
+eyJoaXN0b3J5IjpbMTUyNTczNzY5NSwtMTU3NjEyMTA5MiwyOD
 MxNTI0NywtMTg0MTEzNTM5NCwxNjQ3NzUxODgsLTE0NTY5OTgx
 OTEsMjU0MDYzNjkyLC0xODA0MjA2NzEyLC0yNDQ2NDE3NDMsLT
 ExMzMyNjEwMDFdfQ==
