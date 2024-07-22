@@ -22,6 +22,8 @@ Die Integration dieser Sensoren erfolgt durch eine Kombination von ROS-Nachricht
 
 Diese Dokumentation beschreibt die Implementierung des Systems, die verwendeten Algorithmen zur Sensorfusion und die durchgeführten Tests zur Validierung der Ergebnisse. Ziel ist die Entwicklung eines zuverlässigen und effizienten Objekterkennungssystems für autonome Modellfahrzeuge.
 
+Es wird nicht 
+
 
 # 2. ACC / Integration Lidar / Fusion Lidar mit Kamera
 
@@ -100,7 +102,7 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0Nzc1MTg4LC0xNDU2OTk4MTkxLDI1ND
-A2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQxNzQzLC0xMTMzMjYx
-MDAxXX0=
+eyJoaXN0b3J5IjpbLTExMjcxNjE4OTQsMTY0Nzc1MTg4LC0xND
+U2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQx
+NzQzLC0xMTMzMjYxMDAxXX0=
 -->
