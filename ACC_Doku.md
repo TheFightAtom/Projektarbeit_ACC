@@ -59,9 +59,18 @@ Diese Dokumentation beschreibt die Implementierung des Systems, die verwendeten 
 
 ~~Dieses Unterkapitel behandelt die Integration der Objekterkennung in das System. Es wird beschrieben, wie die von der Kamera erkannten Objekte mit den Lidar-Daten kombiniert werden, um genaue Positions- und Abstandsangaben zu erhalten. Die Objekterkennung spielt eine entscheidende Rolle bei der Navigation und Entscheidungsfindung des autonomen Fahrzeugs.~~
 
-## 2.2 Lidar-Punkt-Projektion
+## 2.8 Kalibrierung
 
-~~Hier wird die Projektion der Lidar-Punkte auf die Bildebene der Kamera erläutert. Dieser Prozess umfasst die Transformation der Lidar-Daten in das Kamerakoordinatensystem und die Anwendung einer Kalibrierungsfunktion, um die Punkte korrekt zu skalieren und zu positionieren. Diese Projektion ist entscheidend für die Fusion der Sensordaten und die nachfolgende Verarbeitung.~~
+~~Hier wird der Kalibrierungsprozess des Systems erläutert. Es wird beschrieben, wie die Lidar-Daten kalibriert werden, um genaue Messungen zu gewährleisten, und wie die Kalibrierungsdaten gesammelt und verarbeitet werden. Die Kalibrierung ist entscheidend für die Genauigkeit und Zuverlässigkeit des gesamten Systems.~~
+
+
+![Kalibrierung 1](https://raw.githubusercontent.com/TheFightAtom/Projektarbeit_ACC/master/Pictures/Kalibrierung_Fusion_Bild1.png)
+![Kalibrierung 2](https://raw.githubusercontent.com/TheFightAtom/Projektarbeit_ACC/master/Pictures/Kalibrierung_Fusion_Bild2.png)
+
+## 2.9 Gesamtumsetzung / main
+
+~~Dieses Unterkapitel beschreibt die Integration aller zuvor erläuterten Komponenten in einem Gesamtprozess. Es wird detailliert erläutert, wie die verschiedenen Sensordaten zusammengeführt und verarbeitet werden, um eine zuverlässige und effiziente Navigation des autonomen Fahrzeugs zu gewährleisten. Hier wird auch der Ablauf der Hauptverarbeitungsroutine dargestellt, die die kontinuierliche Erfassung, Verarbeitung und Entscheidung ermöglicht.~~
+
 
 
 # 3. Radar Test
@@ -91,7 +100,7 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3OTIzMjY0NzAsLTE0NTY5OTgxOTEsMj
-U0MDYzNjkyLC0xODA0MjA2NzEyLC0yNDQ2NDE3NDMsLTExMzMy
-NjEwMDFdfQ==
+eyJoaXN0b3J5IjpbMTY0Nzc1MTg4LC0xNDU2OTk4MTkxLDI1ND
+A2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQxNzQzLC0xMTMzMjYx
+MDAxXX0=
 -->
