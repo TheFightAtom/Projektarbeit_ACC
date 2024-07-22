@@ -45,7 +45,18 @@ Insgesamt bilden die beschriebenen Initialisierungen und Einstellungen die Grund
 
 ## 2.2 Lidar-Punkt-Projektion
 
-~~Hier wird die Projektion der Lidar-Punkte auf die Bildebene der Kamera erläutert. Dieser Prozess umfasst die Transformation der Lidar-Daten in das Kamerakoordinatensystem und die Anwendung einer Kalibrierungsfunktion, um die Punkte korrekt zu skalieren und zu positionieren. Diese Projektion ist entscheidend für die Fusion der Sensordaten und die nachfolgende Verarbeitung.~~
+Die Lidar-Punktprojektion ist eine zentrale Komponente des Systems, die es ermöglicht, die von den Lidar-Sensoren erfassten Daten auf die Bildebene der Kamera zu projizieren. 
+
+Ein wichtiger Aspekt der Lidarpunktprojektion ist die Skalierung. Da die Entfernung der Objekte zum Lidar-Sensor variiert, wird eine dynamische Skalierungsfunktion verwendet, um die Punkte korrekt auf die Kamerabildebene zu projizieren. Die Skalierungsfunktion wird durch eine Kalibrierung bestimmt, bei der bekannte Entfernungen und beobachtete Offsets verwendet werden, um die Parameter der Funktion zu berechnen. Diese Funktion sorgt dafür, dass die Punkte proportional zur Entfernung skaliert werden, was eine realistische und genaue Darstellung der Lidardaten im Kamerabild ermöglicht.
+
+Nach der Skalierung erfolgt die Projektion der Lidarpunkte auf die Bildebene der Kamera. Hierbei wird die Kameramatrix verwendet, um die dreidimensionalen Lidarkoordinaten in zweidimensionale Pixelkoordinaten zu transformieren. Dieser Schritt ist entscheidend, da er die räumliche Information der Lidar-Daten in das Koordinatensystem der Kamera überträgt. Die Kameramatrix, die durch Kalibrierdaten definiert wird, spielt dabei eine zentrale Rolle, da sie die interne Geometrie und die optischen Eigenschaften der Kamera berücksichtigt.
+
+Ein weiterer wichtiger Schritt ist die Berücksichtigung des Offsets zwischen den Sensoren. In vielen Fällen befinden sich der Lidar-Sensor und die Kamera nicht am selben Punkt des Fahrzeugs, was zu Koordinatenabweichungen führt. Um diese Abweichungen zu korrigieren, wird ein Offset verwendet, der die Position des Lidar-Sensors relativ zur Kamera berücksichtigt. Dieser Offset wird bei der Berechnung der Punktkoordinaten entsprechend berücksichtigt, so dass die projizierten Punkte exakt den tatsächlichen Positionen der Objekte entsprechen.
+
+Die gesamte Implementierung der Lidar-Punktprojektion erfolgt in mehreren Funktionen. Die Funktion scaling_model definiert das Modell für die Skalierungsfunktion, während calibrate_scaling_function die Parameter dieser Funktion aus den Kalibrierdaten berechnet. Die Funktion project_to_image_plane führt die eigentliche Projektion der Lidarpunkte auf die Kamerabildebene unter Berücksichtigung der Skalierungsfaktoren durch. Die Funktion apply_lidar_camera_offset korrigiert die Koordinaten der Lidarpunkte durch Anwendung des entsprechenden Offsets. Die Funktion transform_point schließlich transformiert die Lidar-Koordinaten in das Kamerakoordinatensystem.
+
+Zusammen ermöglichen diese Schritte eine präzise und zuverlässige Projektion der Lidar-Daten auf die Bildebene der Kamera, was die Grundlage für die weitere Verarbeitung und Fusion der Sensordaten bildet.
+
 
 ## 2.3 Mittellinienerkennung
 
@@ -112,8 +123,8 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzYxMjEwOTIsMjgzMTUyNDcsLTE4ND
-ExMzUzOTQsMTY0Nzc1MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5
-MiwtMTgwNDIwNjcxMiwtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX
-0=
+eyJoaXN0b3J5IjpbMTM0ODIzMjUwOSwtMTU3NjEyMTA5MiwyOD
+MxNTI0NywtMTg0MTEzNTM5NCwxNjQ3NzUxODgsLTE0NTY5OTgx
+OTEsMjU0MDYzNjkyLC0xODA0MjA2NzEyLC0yNDQ2NDE3NDMsLT
+ExMzMyNjEwMDFdfQ==
 -->
