@@ -60,13 +60,14 @@ Zusammen ermöglichen diese Schritte eine präzise und zuverlässige Projektion 
 
 ## 2.3 Mittellinienerkennung & Streckenbegrenzung
 
-Die Mittellinienerkennung ist eine wichtige Systemkomponente, die die Erkennung und Verfolgung der Fahrspur ermöglicht, um die von den Lidarsensoren erfassten Punkte zu analysieren und sicherzustellen, dass sie sich innerhalb der Fahrspur befinden. Diese Funktion dient dazu, eine erkannte Mittellinie zu verarbeiten und daraus die seitlichen Begrenzungslinien der Fahrspur abzuleiten. Zum Zeitpunkt der Projekteinreichung wird die Mittellinie direkt verwendet, könnte aber in Zukunft durch die Erkennung der Seitenlinien ersetzt werden, um eine genauere und robustere Spurführung zu ermöglichen.
 
-Der Prozess beginnt mit der Aktualisierung der Mittellinie auf Basis der eingehenden Sensordaten. Dabei spielt die Funktion update_boundaries die Hauptrolle. Sie nimmt die Koordinaten der Mittellinie (x_ref und y_ref) als Eingabe und verarbeitet diese, um die vollständige Mittellinie und die seitlichen Begrenzungen zu bestimmen. Die Punkte der Mittellinie werden extrapoliert, um eine längere Strecke abzudecken und eine kontinuierliche Spurführung zu gewährleisten.
+Die Mittellinien- und Fahrspurbegrenzungserkennung ist ein wesentlicher Bestandteil des Systems, um die von den Lidarsensoren erfassten Punkte zu analysieren und sicherzustellen, dass sie sich innerhalb der Fahrspur befinden. Diese Funktion verwendet eine erkannte Mittellinie und leitet daraus die seitlichen Begrenzungslinien der Fahrspur ab. Dies ist wichtig, um sicherzustellen, dass nur relevante Punkte für die Objekterkennung und andere Funktionen des autonomen Fahrzeugs berücksichtigt werden und störende Objekte außerhalb der Fahrspur ausgeblendet werden.
 
-Nach der Bestimmung der Mittellinie werden die seitlichen Begrenzungslinien mathematisch von der Mittellinie abgeleitet. Dies geschieht durch eine feste Verschiebung der Punkte der Mittellinie um einen bestimmten Abstand nach links und rechts. Diese Verschiebungen ergeben die linken und rechten Begrenzungslinien, die als Referenz für die Spurführung des Fahrzeugs dienen. Diese Ableitungsmethode ist einfach und effektiv, stellt aber sicher, dass die Begrenzungslinien parallel zur Mittellinie verlaufen und die Fahrspur korrekt darstellen.
+Die Hauptaufgabe der Mittellinienerkennung besteht darin, die Koordinaten der Mittellinie (x_ref und y_ref) zu verarbeiten und daraus die seitlichen Begrenzungen der Fahrspur zu bestimmen. Die Funktion update_boundaries übernimmt diese Aufgabe, indem sie die Mittellinienpunkte extrapoliert und die linken und rechten Begrenzungslinien berechnet. Diese Begrenzungslinien werden durch eine feste Verschiebung der Mittellinienpunkte um einen bestimmten Abstand nach links und rechts erzeugt.
 
-Ein wesentlicher Teil des Codes in diesem Abschnitt ist der Visualisierung der Mittellinie und der Begrenzungslinien gewidmet. Die Punkte der Linien werden als Pfadnachrichten veröffentlicht, die dann von anderen Komponenten des Systems zur Visualisierung und weiteren Verarbeitung verwendet werden können. Die Mittellinie sowie die linke und rechte Begrenzungslinie werden kontinuierlich aktualisiert und veröffentlicht, um eine Echtzeitdarstellung des Fahrwegs zu ermöglichen.
+Die Mittellinie selbst wird ständig aktualisiert und ihre Punkte werden zur Bestimmung der seitlichen Begrenzungslinien verwendet. Dies geschieht, indem die Punkte der Mittellinie nach links und rechts verschoben werden, um die Grenzen des Gleises zu markieren. Diese Linien dienen als Referenz, um zu überprüfen, ob die von den Lidar-Sensoren erfassten Punkte innerhalb der Fahrspur liegen. Dies ist wichtig, um sicherzustellen, dass nur relevante Objekte erkannt und verfolgt werden, während störende Objekte außerhalb der Fahrspur ignoriert werden.
+
+
 
 
 
@@ -123,8 +124,8 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzAzMDc0MzAsLTE1ODUxNTkxNDgsLT
-E1NzYxMjEwOTIsMjgzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nzc1
-MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMi
-wtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX0=
+eyJoaXN0b3J5IjpbMTgyMzM5OTI1MCwtMTU4NTE1OTE0OCwtMT
+U3NjEyMTA5MiwyODMxNTI0NywtMTg0MTEzNTM5NCwxNjQ3NzUx
+ODgsLTE0NTY5OTgxOTEsMjU0MDYzNjkyLC0xODA0MjA2NzEyLC
+0yNDQ2NDE3NDMsLTExMzMyNjEwMDFdfQ==
 -->
