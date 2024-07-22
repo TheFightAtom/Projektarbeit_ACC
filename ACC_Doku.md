@@ -60,7 +60,7 @@ Zusammen ermöglichen diese Schritte eine präzise und zuverlässige Projektion 
 
 ## 2.3 Mittellinienerkennung
 
-Die Mittellinienerkennung ist ein wichtiger Bestandteil des Systems, der die Erkennung und Verfolgung der Fahrspur ermöglicht. , um die von den Lidarsensoren erfassten Punkte zu analysieren und sicherzustellen, dass sie sich innerhalb der Fahrspur befinden. Diese Funktion dient dazu, eine erkannte Mittellinie zu verarbeiten und daraus die seitlichen Begrenzungslinien der Fahrspur abzuleiten. Zum Zeitpunkt der Einreichung des Projekts wird die Mittellinie direkt verwendet, sie könnte jedoch in Zukunft durch die Erkennung der Seitenlinien ersetzt werden, um eine genauere und robustere Spurführung zu ermöglichen.
+Die Mittellinienerkennung ist eine wichtige Systemkomponente, die die Erkennung und Verfolgung der Fahrspur ermöglicht, um die von den Lidarsensoren erfassten Punkte zu analysieren und sicherzustellen, dass sie sich innerhalb der Fahrspur befinden. Diese Funktion dient dazu, eine erkannte Mittellinie zu verarbeiten und daraus die seitlichen Begrenzungslinien der Fahrspur abzuleiten. Zum Zeitpunkt der Projekteinreichung wird die Mittellinie direkt verwendet, könnte aber in Zukunft durch die Erkennung der Seitenlinien ersetzt werden, um eine genauere und robustere Spurführung zu ermöglichen.
 
 Der Prozess beginnt mit der Aktualisierung der Mittellinie auf Basis der eingehenden Sensordaten. Dabei spielt die Funktion update_boundaries die Hauptrolle. Sie nimmt die Koordinaten der Mittellinie (x_ref und y_ref) als Eingabe und verarbeitet diese, um die vollständige Mittellinie und die seitlichen Begrenzungen zu bestimmen. Die Punkte der Mittellinie werden extrapoliert, um eine längere Strecke abzudecken und eine kontinuierliche Spurführung zu gewährleisten.
 
@@ -69,28 +69,23 @@ Nach der Bestimmung der Mittellinie werden die seitlichen Begrenzungslinien math
 Ein wesentlicher Teil des Codes in diesem Abschnitt ist der Visualisierung der Mittellinie und der Begrenzungslinien gewidmet. Die Punkte der Linien werden als Pfadnachrichten veröffentlicht, die dann von anderen Komponenten des Systems zur Visualisierung und weiteren Verarbeitung verwendet werden können. Die Mittellinie sowie die linke und rechte Begrenzungslinie werden kontinuierlich aktualisiert und veröffentlicht, um eine Echtzeitdarstellung des Fahrwegs zu ermöglichen.
 
 
-
-## 2.2 Lidar-Punkt-Projektion
-
-~~Hier wird die Projektion der Lidar-Punkte auf die Bildebene der Kamera erläutert. Dieser Prozess umfasst die Transformation der Lidar-Daten in das Kamerakoordinatensystem und die Anwendung einer Kalibrierungsfunktion, um die Punkte korrekt zu skalieren und zu positionieren. Diese Projektion ist entscheidend für die Fusion der Sensordaten und die nachfolgende Verarbeitung.~~
-
 ## 2.4 Streckenbegrenzung
 
 ~~Dieses Unterkapitel beschreibt die Erkennung und Verfolgung der seitlichen Streckenbegrenzungen. Die Informationen über die Streckenbegrenzungen werden verwendet, um das Fahrzeug sicher auf der Fahrspur zu halten und mögliche Kollisionen zu vermeiden. Es wird erläutert, wie die Begrenzungslinien basierend auf den Lidar-Daten erkannt und extrapoliert werden.~~
 
-## 2.5 Geschwindigkeitsberechnung
+## 2.4 Geschwindigkeitsberechnung
 
 ~~Hier wird die Berechnung der Geschwindigkeit des vorausfahrenden Fahrzeugs behandelt. Es wird erläutert, wie die Lidar-Daten verwendet werden, um die relative Geschwindigkeit zu berechnen und wie diese Information in die adaptive Geschwindigkeitsregelung (ACC) integriert wird. Zudem wird der Einsatz von Filtern zur Glättung der Geschwindigkeitsmessungen beschrieben.~~
 
-## 2.6 Visualisierung
+## 2.5 Visualisierung
 
 ~~In diesem Abschnitt wird die Visualisierung der Sensordaten und der Ergebnisse der Datenverarbeitung erläutert. Es wird beschrieben, wie die Lidar-Punkte und die erkannten Objekte auf den Kamerabildern visualisiert werden, um eine anschauliche Darstellung der Umgebung zu ermöglichen. Diese Visualisierung unterstützt die Entwicklung und Fehlerbehebung des Systems.~~
 
-## 2.7 Objekterkennung
+## 2.6 Objekterkennung
 
 ~~Dieses Unterkapitel behandelt die Integration der Objekterkennung in das System. Es wird beschrieben, wie die von der Kamera erkannten Objekte mit den Lidar-Daten kombiniert werden, um genaue Positions- und Abstandsangaben zu erhalten. Die Objekterkennung spielt eine entscheidende Rolle bei der Navigation und Entscheidungsfindung des autonomen Fahrzeugs.~~
 
-## 2.8 Kalibrierung
+## 2.7 Kalibrierung
 
 ~~Hier wird der Kalibrierungsprozess des Systems erläutert. Es wird beschrieben, wie die Lidar-Daten kalibriert werden, um genaue Messungen zu gewährleisten, und wie die Kalibrierungsdaten gesammelt und verarbeitet werden. Die Kalibrierung ist entscheidend für die Genauigkeit und Zuverlässigkeit des gesamten Systems.~~
 
@@ -131,8 +126,8 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTI1MTI4MDcxLC0xNTg1MTU5MTQ4LC0xNT
-c2MTIxMDkyLDI4MzE1MjQ3LC0xODQxMTM1Mzk0LDE2NDc3NTE4
-OCwtMTQ1Njk5ODE5MSwyNTQwNjM2OTIsLTE4MDQyMDY3MTIsLT
-I0NDY0MTc0MywtMTEzMzI2MTAwMV19
+eyJoaXN0b3J5IjpbLTEyNDQzMjExNzksLTE1ODUxNTkxNDgsLT
+E1NzYxMjEwOTIsMjgzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nzc1
+MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMi
+wtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX0=
 -->
