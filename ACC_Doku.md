@@ -43,6 +43,8 @@ Das größte Problem, das während der Tests auftrat, war das Ende des Supports 
 
 Da die herstellereigene Software nicht mehr verfügbar war, blieb nur die Möglichkeit, das Radar über die Python-Schnittstelle zu nutzen. Diese bietet grundlegende Funktionen zur Steuerung und Auswertung der Radardaten. Trotz dieser Einschränkungen konnten wir das Radar erfolgreich testen und die gewonnenen Daten visualisieren. Dazu wurde ein 3D-Plot erstellt, der die vom Radar erfassten Punkte darstellt. Diese Visualisierung half uns, die Funktionsweise und die Erkennungsgenauigkeit des Radars besser zu verstehen.
 
+
+
 Die Testergebnisse zeigten, dass das Radar in der Lage ist, Objekte in seiner Umgebung zu erkennen und deren Position genau zu bestimmen. Die fehlende Unterstützung durch den Hersteller wird jedoch die zukünftige Integration des Radars in unser System erheblich erschweren. Insbesondere die fehlende ROS-Integration stellt ein großes Hindernis dar, da wir dadurch keine nahtlose Kommunikation zwischen den verschiedenen Sensoren und Komponenten unseres Projektes gewährleisten können.
 
 Zusammenfassend lässt sich sagen, dass das Radar der Firma X zwar prinzipiell für unsere Anwendung geeignet wäre, aber die fehlende Unterstützung und die damit verbundenen technischen Herausforderungen eine vollständige Integration in unser System problematisch machen. Zukünftige Arbeiten sollten daher entweder auf eine Lösung zur Integration des Radars in ROS abzielen oder alternative Radarsysteme mit besserer Unterstützung und Dokumentation in Betracht ziehen.
@@ -54,6 +56,6 @@ Text
 
 ## Weiterführende Arbeit
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2MDQwOTI0NCwtMjQ0NjQxNzQzLC0xMT
-MzMjYxMDAxXX0=
+eyJoaXN0b3J5IjpbLTE4MDQyMDY3MTIsLTI0NDY0MTc0MywtMT
+EzMzI2MTAwMV19
 -->
