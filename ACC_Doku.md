@@ -106,7 +106,15 @@ Insgesamt ermöglicht die Kalibrierung eine präzise und zuverlässige Nutzung d
 
 ## 2.6 Hauptlogik / Ablauf
 
-~~Dieses Unterkapitel beschreibt die Integration aller zuvor erläuterten Komponenten in einem Gesamtprozess. Es wird detailliert erläutert, wie die verschiedenen Sensordaten zusammengeführt und verarbeitet werden, um eine zuverlässige und effiziente Navigation des autonomen Fahrzeugs zu gewährleisten. Hier wird auch der Ablauf der Hauptverarbeitungsroutine dargestellt, die die kontinuierliche Erfassung, Verarbeitung und Entscheidung ermöglicht. HIER AUCH BESCHREIBEN OBJEKTERKENNUNG UND VISUALISIERUNG CLUSTER!!!~~
+Die Hauptlogik des Systems wird durch die Funktion process_data realisiert, die kontinuierlich aufgerufen wird, um die Sensordaten zu verarbeiten und die notwendigen Entscheidungen für die autonome Fahrzeugsteuerung zu treffen. Diese Funktion spielt eine zentrale Rolle, da sie die verschiedenen Datenquellen integriert, die relevanten Informationen extrahiert und die Steuerbefehle generiert.
+
+Die Funktion process_data prüft zunächst, ob aktuelle Lidardaten vorliegen. Wenn keine neuen Lidar-Daten empfangen wurden, wird die Verarbeitung abgebrochen und gewartet, bis neue Daten eintreffen. Diese Überprüfung ist wichtig, um sicherzustellen, dass das System immer mit den aktuellsten Informationen arbeitet.
+
+Die Hauptlogik der Datenverarbeitung erfolgt in zwei Varianten, abhängig von der Konfiguration des Systems: Clustering ohne Objekterkennung und erweitertes Clustering mit Objekterkennung.
+
+In der ersten Variante, bei der use_cluster_code_without_detection aktiviert ist, werden die Lidardaten direkt zur Bildung von Clustern verarbeitet. Die Clusterbildung erfolgt durch Gruppierung von Punkten, die räumlich nahe beieinander liegen. Diese Punkte werden anhand ihrer x- und y-Position im Raum gruppiert, wobei ein bestimmter Abstand nicht überschritten werden darf, um als zusammenhängendes Cluster zu gelten.
+
+
 
 
 
@@ -137,9 +145,9 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjkxNzgyNDg5LDE2NzUyNjY2MTYsNTI3Nz
-QyNTMyLC0xNTg1MTU5MTQ4LC0xNTc2MTIxMDkyLDI4MzE1MjQ3
-LC0xODQxMTM1Mzk0LDE2NDc3NTE4OCwtMTQ1Njk5ODE5MSwyNT
-QwNjM2OTIsLTE4MDQyMDY3MTIsLTI0NDY0MTc0MywtMTEzMzI2
-MTAwMV19
+eyJoaXN0b3J5IjpbLTUzMjg5MTA1OCw2OTE3ODI0ODksMTY3NT
+I2NjYxNiw1Mjc3NDI1MzIsLTE1ODUxNTkxNDgsLTE1NzYxMjEw
+OTIsMjgzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nzc1MTg4LC0xND
+U2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQx
+NzQzLC0xMTMzMjYxMDAxXX0=
 -->
