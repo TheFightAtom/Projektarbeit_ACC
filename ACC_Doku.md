@@ -60,7 +60,13 @@ Zusammen ermöglichen diese Schritte eine präzise und zuverlässige Projektion 
 
 ## 2.3 Mittellinienerkennung
 
-~~In diesem Abschnitt wird beschrieben, wie die Mittellinie der Fahrspur erkannt und verfolgt wird. Die Mittellinienerkennung nutzt die Lidar-Daten, um eine zuverlässige Spurführung zu ermöglichen. Es werden Algorithmen zur Erkennung und Verfolgung der Mittellinie vorgestellt sowie die Methoden zur Verarbeitung und Speicherung der erkannten Linienpunkte erläutert.~~
+Die Mittellinienerkennung ist ein wichtiger Bestandteil des Systems, der die Erkennung und Verfolgung der Fahrspur ermöglicht. Diese Funktion dient dazu, eine erkannte Mittellinie zu verarbeiten und daraus die seitlichen Begrenzungslinien der Fahrspur abzuleiten. Zum Zeitpunkt der Einreichung des Projekts wird die Mittellinie direkt verwendet, sie könnte jedoch in Zukunft durch die Erkennung der Seitenlinien ersetzt werden, um eine genauere und robustere Spurführung zu ermöglichen.
+
+Der Prozess beginnt mit der Aktualisierung der Mittellinie auf Basis der eingehenden Sensordaten. Dabei spielt die Funktion update_boundaries die Hauptrolle. Sie nimmt die Koordinaten der Mittellinie (x_ref und y_ref) als Eingabe und verarbeitet diese, um die vollständige Mittellinie und die seitlichen Begrenzungen zu bestimmen. Die Punkte der Mittellinie werden extrapoliert, um eine längere Strecke abzudecken und eine kontinuierliche Spurführung zu gewährleisten.
+
+Nach der Bestimmung der Mittellinie werden die seitlichen Begrenzungslinien mathematisch von der Mittellinie abgeleitet. Dies geschieht durch eine feste Verschiebung der Punkte der Mittellinie um einen bestimmten Abstand nach links und rechts. Diese Verschiebungen ergeben die linken und rechten Begrenzungslinien, die als Referenz für die Spurführung des Fahrzeugs dienen. Diese Ableitungsmethode ist einfach und effektiv, stellt aber sicher, dass die Begrenzungslinien parallel zur Mittellinie verlaufen und die Fahrspur korrekt darstellen.
+
+Ein wesentlicher Teil des Codes in diesem Abschnitt ist der Visualisierung der Mittellinie und der Begrenzungslinien gewidmet. Die Punkte der Linien werden als Pfadnachrichten veröffentlicht, die dann von anderen Komponenten des Systems zur Visualisierung und weiteren Verarbeitung verwendet werden können. Die Mittellinie sowie die linke und rechte Begrenzungslinie werden kontinuierlich aktualisiert und veröffentlicht, um eine Echtzeitdarstellung des Fahrwegs zu ermöglichen.
 
 ## 2.2 Lidar-Punkt-Projektion
 
@@ -123,8 +129,8 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODUxNTkxNDgsLTE1NzYxMjEwOTIsMj
-gzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nzc1MTg4LC0xNDU2OTk4
-MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQxNzQzLC
-0xMTMzMjYxMDAxXX0=
+eyJoaXN0b3J5IjpbLTIwMDUyODU4ODIsLTE1ODUxNTkxNDgsLT
+E1NzYxMjEwOTIsMjgzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nzc1
+MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMi
+wtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX0=
 -->
