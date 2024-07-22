@@ -76,7 +76,14 @@ Zusammenfassend lässt sich sagen, dass die Mittellinien- und Fahrspurbegrenzung
 
 ## 2.4 Geschwindigkeitsberechnung
 
-~~Hier wird die Berechnung der Geschwindigkeit des vorausfahrenden Fahrzeugs behandelt. Es wird erläutert, wie die Lidar-Daten verwendet werden, um die relative Geschwindigkeit zu berechnen und wie diese Information in die adaptive Geschwindigkeitsregelung (ACC) integriert wird. Zudem wird der Einsatz von Filtern zur Glättung der Geschwindigkeitsmessungen beschrieben.~~
+Die Geschwindigkeitsberechnung ist ein zentraler Bestandteil der adaptiven Geschwindigkeitsregelung (ACC). Sie ermöglicht es, die Geschwindigkeit des vorausfahrenden Fahrzeugs zu bestimmen und diese Information an das Steuergerät weiterzuleiten, das die Geschwindigkeit des autonomen Fahrzeugs entsprechend anpasst.
+
+Die Berechnung der Geschwindigkeit des vorausfahrenden Fahrzeugs erfolgt durch die Auswertung von Lidardaten. Die Funktion calculate_front_vehicle_speed gibt den aktuellen Abstand zum vorausfahrenden Fahrzeug ein und berechnet die Relativgeschwindigkeit aus der zeitlichen Änderung dieses Abstands. Dazu wird die Differenz zwischen dem aktuellen und dem vorherigen Abstand sowie die entsprechende Zeitdifferenz verwendet. Die Relativgeschwindigkeit gibt an, wie schnell sich das vorausfahrende Fahrzeug relativ zum eigenen Fahrzeug bewegt.
+
+Ein wichtiger Aspekt der Geschwindigkeitsberechnung ist die Anwendung eines PT1-Filters (Proportional-Integral-Filter). Dieser Filter wird verwendet, um die berechnete Geschwindigkeit zu glätten und kurzzeitige Schwankungen zu reduzieren. Dies ist wichtig, um stabile und zuverlässige Geschwindigkeitswerte zu erhalten, die dem ACC-Controller als Eingabe dienen. Der PT1-Filter berechnet die gefilterte Geschwindigkeit als gewichtete Summe der aktuellen und der vorhergehenden Geschwindigkeit, wobei die Gewichtung durch eine Filterkonstante bestimmt wird. Dieser Ansatz hilft, plötzliche Änderungen in der Geschwindigkeitsmessung zu dämpfen und eine gleichmäßigere Regelung zu ermöglichen.
+
+Die gefilterte Geschwindigkeit wird schließlich an das ACC-Steuergerät übermittelt, das die Geschwindigkeit des autonomen Fahrzeugs entsprechend regelt. Durch den Einsatz des PT1-Filters wird sichergestellt, dass das Steuergerät mit stabilen und zuverlässigen Geschwindigkeitswerten arbeitet, was zu einer gleichmäßigen und komfortablen Fahrweise führt. Die kontinuierliche Berechnung und Filterung der Geschwindigkeit ist daher ein wesentlicher Bestandteil des ACC-Systems, das die Sicherheit und Effizienz des autonomen Fahrzeugs gewährleistet.
+
 
 ## 2.5 Visualisierung
 
@@ -127,7 +134,7 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5Mzc5NjU3MSw1Mjc3NDI1MzIsLTE1OD
+eyJoaXN0b3J5IjpbMTY3NTI2NjYxNiw1Mjc3NDI1MzIsLTE1OD
 UxNTkxNDgsLTE1NzYxMjEwOTIsMjgzMTUyNDcsLTE4NDExMzUz
 OTQsMTY0Nzc1MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5MiwtMT
 gwNDIwNjcxMiwtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX0=
