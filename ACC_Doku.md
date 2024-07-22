@@ -53,7 +53,7 @@ Nach der Skalierung erfolgt die Projektion der Lidarpunkte auf die Bildebene der
 
 Ein weiterer wichtiger Schritt ist die Berücksichtigung des Offsets zwischen den Sensoren. In unserem Fall befinden sich der Lidar-Sensor und die Kamera nicht am selben Punkt des Fahrzeugs, was zu Koordinatenabweichungen führt. Um diese Abweichungen zu korrigieren, wird ein Offset verwendet, der die Position des Lidar-Sensors relativ zur Kamera berücksichtigt. Dieser Offset wird bei der Berechnung der Punktkoordinaten entsprechend berücksichtigt, so dass die projizierten Punkte exakt den tatsächlichen Positionen der Objekte entsprechen.
 
-Die gesamte Implementierung der Lidar-Punktprojektion erfolgt in mehreren Funktionen. Die Funktion scaling_model definiert das Modell für die Skalierungsfunktion, während calibrate_scaling_function die Parameter dieser Funktion aus den Kalibrierdaten berechnet. Die Funktion project_to_image_plane führt die eigentliche Projektion der Lidarpunkte auf die Kamerabildebene unter Berücksichtigung der Skalierungsfaktoren durch. Die Funktion apply_lidar_camera_offset korrigiert die Koordinaten der Lidarpunkte durch Anwendung des entsprechenden Offsets. Die Funktion transform_point schließlich transformiert die Lidar-Koordinaten in das Kamerakoordinatensystem.
+Die gesamte Implementierung der Lidar-Punktprojektion erfolgt in mehreren Funktionen. Die Funktion project_to_image_plane führt die eigentliche Projektion der Lidarpunkte auf die Kamerabildebene unter Berücksichtigung der Skalierungsfaktoren durch. Die Funktion transform_point schließlich transformiert die Lidar-Koordinaten in das Kamerakoordinatensystem.
 
 Zusammen ermöglichen diese Schritte eine präzise und zuverlässige Projektion der Lidar-Daten auf die Bildebene der Kamera, was die Grundlage für die weitere Verarbeitung und Fusion der Sensordaten bildet.
 
@@ -123,8 +123,8 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTg1MTM3NzY0LC0xNTc2MTIxMDkyLDI4Mz
-E1MjQ3LC0xODQxMTM1Mzk0LDE2NDc3NTE4OCwtMTQ1Njk5ODE5
-MSwyNTQwNjM2OTIsLTE4MDQyMDY3MTIsLTI0NDY0MTc0MywtMT
-EzMzI2MTAwMV19
+eyJoaXN0b3J5IjpbLTE1ODUxNTkxNDgsLTE1NzYxMjEwOTIsMj
+gzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nzc1MTg4LC0xNDU2OTk4
+MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQxNzQzLC
+0xMTMzMjYxMDAxXX0=
 -->
