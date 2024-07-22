@@ -54,16 +54,14 @@ Zusammenfassend lässt sich sagen, dass das Radar zwar prinzipiell für unsere A
 
 In diesem Projekt wurde erfolgreich demonstriert, wie die Lidar-Technologie effektiv bei der Entwicklung autonomer Fahrzeuge eingesetzt werden kann. Lidar spielte eine zentrale Rolle bei der Erfassung und Verarbeitung von Umgebungsdaten, die für verschiedene Aspekte der Fahrzeugnavigation und -steuerung von entscheidender Bedeutung sind.
 
-Durch die Integration von Lidar-Daten konnte der Abstand und die Geschwindigkeit des vorausfahrenden Fahrzeugs genau bestimmt werden. Dies ist für die adaptive Geschwindigkeitsregelung (ACC) unerlässlich, um ein sicheres und effizientes Fahren zu gewährleisten. Darüber hinaus wurden die Lidar-Daten verwendet, um den Abstand von Objekten, die durch die Objekterkennung identifiziert wurden, genau zu bestimmen, was die Genauigkeit und Zuverlässigkeit des Systems weiter erhöhte.
+Durch die Integration von Lidar-Daten konnten Abstand und Geschwindigkeit des vorausfahrenden Fahrzeugs genau bestimmt werden. Dies ist für die adaptive Geschwindigkeitsregelung (ACC) unerlässlich, um ein sicheres und effizientes Fahren zu gewährleisten. Darüber hinaus wurden die Lidar-Daten verwendet, um den Abstand von Objekten, die durch die Objekterkennung identifiziert wurden, genau zu bestimmen, was die Genauigkeit und Zuverlässigkeit des Systems weiter erhöht. Dies alles unter Berücksichtigung der Streckenbeschränkungen.
 
-Ein weiterer wichtiger Aspekt in diesem Projekt war die Berücksichtigung von Streckenbegrenzungen. Das Lidar ermöglichte es, die Mittellinie der Fahrspur zu erkennen und zu verfolgen. Diese Informationen sind entscheidend, um das Fahrzeug sicher in der Spur zu halten und Kollisionen zu vermeiden.
-
-Durch die Fusion von Lidar-Daten mit Kamerabildern konnte eine robustere und genauere Umgebungserkennung erreicht werden. Dies wurde durch den Einsatz von ROS und verschiedenen Bildverarbeitungsalgorithmen ermöglicht, die eine Echtzeitverarbeitung der Sensordaten sicherstellten. Darüber hinaus wurde das Lidar kalibriert, um die Genauigkeit der Messungen
+Durch die Fusion von Lidar-Daten mit Kamerabildern konnte eine robustere und genauere Umgebungserkennung erreicht werden. Dies wurde durch den Einsatz von ROS und verschiedenen Bildverarbeitungsalgorithmen ermöglicht, die eine Echtzeitverarbeitung der Sensordaten sicherstellten. Darüber hinaus wurde das Lidar kalibriert, um die Messgenauigkeit zu gewährleisten und zuverlässige Daten für die Entscheidungsfindung zu liefern.
 
 Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung und Erweiterung des Systems. Ein Bereich, der noch verbessert werden kann, ist die Linienerkennung. Sobald eine verbesserte Linienerkennung implementiert ist, können weitere Schritte unternommen werden, um die erkannten Linien als seitliche Begrenzungen für das autonome Fahren zu nutzen. Diese Erweiterung würde die Navigation des Fahrzeugs in komplexeren Umgebungen weiter verbessern.
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExOTMwMDM3MCwyNTQwNjM2OTIsLTE4MD
-QyMDY3MTIsLTI0NDY0MTc0MywtMTEzMzI2MTAwMV19
+eyJoaXN0b3J5IjpbLTE0NTY5OTgxOTEsMjU0MDYzNjkyLC0xOD
+A0MjA2NzEyLC0yNDQ2NDE3NDMsLTExMzMyNjEwMDFdfQ==
 -->
