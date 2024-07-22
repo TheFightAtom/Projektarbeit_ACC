@@ -29,7 +29,6 @@ Dieses Kapitel beschreibt die verschiedenen Aspekte der Implementierung der ACC-
 
 ## 2.1 Initialisierungen
 
-
 Zu Beginn der Initialisierung werden einige wesentliche Einstellungen vorgenommen, die den Betrieb des Systems beeinflussen. Eine wichtige Einstellung ist use_cluster_code_without_detection. Mit diesem Flag wird der Standalone-Betrieb ohne die integrierte Objekterkennung aktiviert. Eine ähnliche Einstellung ist use_boundry_code_without_detection, die es ermöglicht, das System ohne die Mittellinienerkennung zu betreiben. Es ist zu beachten, dass die Seitenlinienerkennung zum Zeitpunkt der Projektabgabe noch nicht implementiert ist.
 
 Das System verwendet eine Reihe von ROS Subscribern und Publishern, um Sensordaten zu empfangen und verarbeitete Daten zu veröffentlichen. Die Subscriber sind dafür verantwortlich, Daten von verschiedenen Sensoren wie Lidar, Kameras und anderen Quellen zu empfangen. Beispielsweise empfängt der Lidar-Subscriber (self.lidar_sub) die Lidar-Scans, während der Kamera-Subscriber (self.camera_sub) die Kamerabilder empfängt. Andere Subscriber sammeln Daten wie die Geschwindigkeit des Fahrzeugs und die erkannten Objekte.
@@ -113,7 +112,8 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQwNTUzNzQyLDI4MzE1MjQ3LC0xODQxMT
-M1Mzk0LDE2NDc3NTE4OCwtMTQ1Njk5ODE5MSwyNTQwNjM2OTIs
-LTE4MDQyMDY3MTIsLTI0NDY0MTc0MywtMTEzMzI2MTAwMV19
+eyJoaXN0b3J5IjpbLTE1NzYxMjEwOTIsMjgzMTUyNDcsLTE4ND
+ExMzUzOTQsMTY0Nzc1MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5
+MiwtMTgwNDIwNjcxMiwtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX
+0=
 -->
