@@ -29,7 +29,20 @@ Dieses Kapitel beschreibt die verschiedenen Aspekte der Implementierung der ACC-
 
 ## 2.1 Initialisierungen
 
-~~Dieses Unterkapitel behandelt die Initialisierung der ROS-Knoten, die Einrichtung der verschiedenen Abonnements und Veröffentlichungen sowie die Definition der Callback-Funktionen. Es wird beschrieben, wie die verschiedenen Sensoren (Lidar, Kamera, etc.) konfiguriert und eingebunden werden. Zudem wird erläutert, wie die Kamerainformationen periodisch veröffentlicht werden, um die Kalibrierung und Synchronisation zwischen den Sensoren zu unterstützen.~~
+
+Zu Beginn der Initialisierung werden einige wesentliche Einstellungen vorgenommen, die den Betrieb des Systems beeinflussen. Eine wichtige Einstellung ist use_cluster_code_without_detection. Mit diesem Flag wird der Standalone-Betrieb ohne die integrierte Objekterkennung aktiviert. Eine ähnliche Einstellung ist use_boundry_code_without_detection, die es ermöglicht, das System ohne die Mittellinienerkennung zu betreiben. Es ist zu beachten, dass die Seitenlinienerkennung zum Zeitpunkt der Projektabgabe noch nicht implementiert ist.
+
+Das System verwendet eine Reihe von ROS Subscribern und Publishern, um Sensordaten zu empfangen und verarbeitete Daten zu veröffentlichen. Die Subscriber sind dafür verantwortlich, Daten von verschiedenen Sensoren wie Lidar, Kameras und anderen Quellen zu empfangen. Beispielsweise empfängt der Lidar-Subscriber (self.lidar_sub) die Lidar-Scans, während der Kamera-Subscriber (self.camera_sub) die Kamerabilder empfängt. Andere Subscriber sammeln Daten wie die Geschwindigkeit des Fahrzeugs und die erkannten Objekte.
+
+Auf der anderen Seite veröffentlichen Publisher die aufbereiteten Daten, die von anderen Komponenten des Systems oder zur Visualisierung benötigt werden. Beispiele hierfür sind der distance_pub, der den berechneten Abstand zum vorausfahrenden Fahrzeug publiziert, und der image_pub, der die projizierten Lidar-Bilder ausgibt. Diese Kommunikationsstruktur ermöglicht eine effiziente Verteilung und Nutzung der Sensordaten im gesamten System.
+
+Zur Speicherung und Verarbeitung der Sensordaten werden verschiedene Datenplatzhalter und Standardwerte definiert. Diese Platzhalter dienen der Zwischenspeicherung von Informationen, wie z.B. die erkannten Objekte, die Koordinaten der Mittellinie und die Streckenbegrenzungen. Standardwerte wie die Eigengeschwindigkeit des Fahrzeugs oder die Kameramatrix werden initialisiert, um eine Basis für weitere Berechnungen zu schaffen.
+
+Callback-Funktionen sind zentrale Bestandteile des ROS-Systems. Sie werden automatisch aufgerufen, sobald neue Daten von den Sensoren eintreffen. In diesem Projekt gibt es mehrere Callback-Funktionen, die jeweils bestimmte Aufgaben übernehmen. Beispielsweise verarbeitet die lidar_callback-Funktion die empfangenen Lidar-Daten, während die camera_callback-Funktion die Kamerabilder in ein verarbeitbares Format umwandelt. Diese Funktionen gewährleisten eine kontinuierliche und zeitnahe Verarbeitung der Sensordaten.
+
+Ein weiterer wichtiger Aspekt der Initialisierung ist die Bereitstellung von Kamerainformationen. Dies geschieht über eine spezielle Callback-Funktion, die periodisch aufgerufen wird, um die aktuellen Kameradaten zu publizieren. Diese Informationen sind für die Kalibrierung und die korrekte Projektion der Lidarpunkte auf die Bildebene der Kamera unerlässlich. Wird eine neue Kamera verwendet, müssen die Kameradaten entsprechend angepasst werden, um eine genaue Synchronisation und Kalibrierung zu gewährleisten.
+
+Insgesamt bilden die beschriebenen Initialisierungen und Einstellungen die Grundlage für die Funktionalität des Systems und ermöglichen eine effektive und effiziente Verarbeitung der Sensordaten.
 
 ## 2.2 Lidar-Punkt-Projektion
 
@@ -100,7 +113,7 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjgzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nz
-c1MTg4LC0xNDU2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcx
-MiwtMjQ0NjQxNzQzLC0xMTMzMjYxMDAxXX0=
+eyJoaXN0b3J5IjpbOTQwNTUzNzQyLDI4MzE1MjQ3LC0xODQxMT
+M1Mzk0LDE2NDc3NTE4OCwtMTQ1Njk5ODE5MSwyNTQwNjM2OTIs
+LTE4MDQyMDY3MTIsLTI0NDY0MTc0MywtMTEzMzI2MTAwMV19
 -->
