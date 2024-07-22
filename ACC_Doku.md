@@ -118,14 +118,11 @@ Nach der Clusterbildung wird das beste Cluster ausgewählt. Dies ist das Cluster
 
 In der zweiten Variante, bei der die Objekterkennung integriert ist, werden die Lidardaten mit den erkannten Objekten der Kamera kombiniert. Jedes erkannte Objekt wird auf mögliche zugehörige Lidarpunkte überprüft, um die genaue Position und Entfernung zu bestimmen. Diese Datenfusion ermöglicht eine genauere Erkennung und Verfolgung der Objekte. Auch hier wird das beste Cluster aus den erkannten Fahrzeugen ausgewählt und weiterverarbeitet.
 
-Ein wichtiger Schritt in beiden Varianten ist die Transformation der Lidarpunkte in das Kamerakoordinatensystem, welches mit der zuvor beschriebenen Funktion transform_and_project_lidar_points umgesetzt ist, welche dafür sorgt für die korrekte Zuordnung der Punkte.
+Ein wichtiger Schritt in beiden Varianten ist die Transformation der Lidarpunkte in das Kamerakoordinatensystem, die mit der zuvor beschriebenen Funktion transform_and_project_lidar_points durchgeführt wird und die korrekte Zuordnung der Punkte sicherstellt.
 
 Ein entscheidender Teil der Hauptlogik ist die Behandlung von Fällen, in denen kein Objekt erkannt wird. In solchen Fällen wird die Entfernung auf einen Standardwert von 999 Metern und die Geschwindigkeit des vorausfahrenden Fahrzeugs auf 0.0 m/s gesetzt. Diese Werte sind für die Steuerung wichtig, da sie signalisieren, dass kein Fahrzeug in unmittelbarer Nähe erkannt wurde. Der Regler kann dann geeignete Maßnahmen ergreifen, z. B. die Geschwindigkeit anpassen oder die aktuelle Geschwindigkeit beibehalten.
 
-Zusätzlich zu diesen Hauptaspekten gibt es zwei wichtige Funktionen, die spezifische Aufgaben innerhalb der process_data-Logik erfüllen:
-
-Hinzufügen der Geschwindigkeit zum Multiarray:
-Die Funktion publish_multiarray_with_distance erweitert die empfangenen Multiarray-Daten um die berechnete Geschwindigkeit der detektierten Objekte. Diese Funktion nimmt die detektierten Objekte und deren berechnete Entfernungen und veröffentlicht diese Informationen in strukturierter Form. Sie erzeugt eine Float32MultiArray-Nachricht, die die Daten der erkannten Objekte und deren Entfernungen enthält. Diese Nachricht wird dann über einen ROS Publisher veröffentlicht, so dass andere Komponenten des Systems auf diese Informationen zugreifen und sie für die Entscheidungsfindung nutzen können. Diese Erweiterung stellt sicher, dass alle relevanten Informationen für die Objekterkennung und die adaptive Geschwindigkeitsregelung (ACC) zur Verfügung stehen.
+Zudem wird bei der Variante mit Objekterkennung auch noch mit hilfe der Funktion publish_multiarray_with_distance das empfangene Multiarray-D um die berechnete Geschwindigkeit der detektierten Objekte. Diese Funktion nimmt die detektierten Objekte und deren berechnete Entfernungen und veröffentlicht diese Informationen in strukturierter Form. Sie erzeugt eine Float32MultiArray-Nachricht, die die Daten der erkannten Objekte und deren Entfernungen enthält. Diese Nachricht wird dann über einen ROS Publisher veröffentlicht, so dass andere Komponenten des Systems auf diese Informationen zugreifen und sie für die Entscheidungsfindung nutzen können. Diese Erweiterung stellt sicher, dass alle relevanten Informationen für die Objekterkennung und die adaptive Geschwindigkeitsregelung (ACC) zur Verfügung stehen.
 
 Visualisierung des Clusters:
 Die Funktion publish_best_cluster_as_laserscan dient zur Visualisierung des besten erkannten Clusters. Sie konvertiert das ausgewählte Cluster in ein LaserScan-Nachrichtenformat, das dann über einen ROS-Publisher veröffentlicht wird. Diese Visualisierung ermöglicht die Überwachung und Überprüfung der Position und Struktur des besten Clusters in der Umgebung des Fahrzeugs. Diese Visualisierung ist besonders hilfreich bei der Entwicklung und Fehlersuche, da sie ein visuelles Feedback über die erkannten Objekte und ihre relativen Positionen bietet.
@@ -160,9 +157,9 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjIzMTE3NTksNjkxNzgyNDg5LDE2Nz
-UyNjY2MTYsNTI3NzQyNTMyLC0xNTg1MTU5MTQ4LC0xNTc2MTIx
-MDkyLDI4MzE1MjQ3LC0xODQxMTM1Mzk0LDE2NDc3NTE4OCwtMT
-Q1Njk5ODE5MSwyNTQwNjM2OTIsLTE4MDQyMDY3MTIsLTI0NDY0
-MTc0MywtMTEzMzI2MTAwMV19
+eyJoaXN0b3J5IjpbMTc2NTIxODA1Myw2OTE3ODI0ODksMTY3NT
+I2NjYxNiw1Mjc3NDI1MzIsLTE1ODUxNTkxNDgsLTE1NzYxMjEw
+OTIsMjgzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nzc1MTg4LC0xND
+U2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQx
+NzQzLC0xMTMzMjYxMDAxXX0=
 -->
