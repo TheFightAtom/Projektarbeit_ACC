@@ -118,7 +118,7 @@ Nach der Clusterbildung wird das beste Cluster ausgewählt. Dies ist das Cluster
 
 In der zweiten Variante, bei der die Objekterkennung integriert ist, werden die Lidardaten mit den erkannten Objekten der Kamera kombiniert. Jedes erkannte Objekt wird auf mögliche zugehörige Lidarpunkte überprüft, um die genaue Position und Entfernung zu bestimmen. Diese Datenfusion ermöglicht eine genauere Erkennung und Verfolgung der Objekte. Auch hier wird das beste Cluster aus den erkannten Fahrzeugen ausgewählt und weiterverarbeitet.
 
-Ein wichtiger Schritt in beiden Varianten ist die Transformation der Lidarpunkte in das Kamerakoordinatensystem. Diese Transformation ermöglicht die Projektion der Lidardaten auf die Kamerabildebene und unterstützt die visuelle Überprüfung und Kalibrierung der Sensordaten. Die Funktion transform_and_project_lidar_points übernimmt diese Aufgabe und sorgt für die korrekte Zuordnung der Punkte.
+Ein wichtiger Schritt in beiden Varianten ist die Transformation der Lidarpunkte in das Kamerakoordinatensystem, welches mit der zuvor beschriebenen Funktion transform_and_project_lidar_points umgesetzt ist, welche dafür sorgt für die korrekte Zuordnung der Punkte.
 
 Ein entscheidender Teil der Hauptlogik ist die Behandlung von Fällen, in denen kein Objekt erkannt wird. In solchen Fällen wird die Entfernung auf einen Standardwert von 999 Metern und die Geschwindigkeit des vorausfahrenden Fahrzeugs auf 0.0 m/s gesetzt. Diese Werte sind für die Steuerung wichtig, da sie signalisieren, dass kein Fahrzeug in unmittelbarer Nähe erkannt wurde. Der Regler kann dann geeignete Maßnahmen ergreifen, z. B. die Geschwindigkeit anpassen oder die aktuelle Geschwindigkeit beibehalten.
 
@@ -160,9 +160,9 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5MzE3MzU2Myw2OTE3ODI0ODksMTY3NT
-I2NjYxNiw1Mjc3NDI1MzIsLTE1ODUxNTkxNDgsLTE1NzYxMjEw
-OTIsMjgzMTUyNDcsLTE4NDExMzUzOTQsMTY0Nzc1MTg4LC0xND
-U2OTk4MTkxLDI1NDA2MzY5MiwtMTgwNDIwNjcxMiwtMjQ0NjQx
-NzQzLC0xMTMzMjYxMDAxXX0=
+eyJoaXN0b3J5IjpbLTE3MjIzMTE3NTksNjkxNzgyNDg5LDE2Nz
+UyNjY2MTYsNTI3NzQyNTMyLC0xNTg1MTU5MTQ4LC0xNTc2MTIx
+MDkyLDI4MzE1MjQ3LC0xODQxMTM1Mzk0LDE2NDc3NTE4OCwtMT
+Q1Njk5ODE5MSwyNTQwNjM2OTIsLTE4MDQyMDY3MTIsLTI0NDY0
+MTc0MywtMTEzMzI2MTAwMV19
 -->
