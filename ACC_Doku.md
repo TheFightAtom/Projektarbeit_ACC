@@ -114,10 +114,12 @@ Die Hauptlogik der Datenverarbeitung erfolgt in zwei Varianten, abhängig von de
 
 In der ersten Variante, bei der use_cluster_code_without_detection aktiviert ist, werden die Lidardaten direkt zur Bildung von Clustern verarbeitet. Die Clusterbildung erfolgt durch Gruppierung von Punkten, die räumlich nahe beieinander liegen. Diese Punkte werden anhand ihrer x- und y-Position im Raum gruppiert, wobei ein bestimmter Abstand nicht überschritten werden darf, um als zusammenhängendes Cluster zu gelten.
 
-Nach der Clusterbildung wird das beste Cluster ausgewählt. Dies ist das Cluster, das am nächsten zur Mitte der Fahrspur liegt. Die Auswahl erfolgt durch Berechnung des durchschnittlichen Abstands der Punkte im Cluster zur Mittellinie. Das beste Cluster wird dann verwendet, um den aktuellen Abstand zum vorausfahrenden Fahrzeug und dessen Geschwindigkeit zu berechnen. Diese Werte werden dann gefiltert und angezeigt.![Erkennen irgendeines Objekts in der Mitte](https://raw.githubusercontent.com/TheFightAtom/Projektarbeit_ACC/master/Pictures/Beispielbild_Erkennung2.jpg)
+Nach der Clusterbildung wird das beste Cluster ausgewählt. Dies ist das Cluster, das am nächsten zur Mitte der Fahrspur liegt. Die Auswahl erfolgt durch Berechnung des durchschnittlichen Abstands der Punkte im Cluster zur Mittellinie. Das beste Cluster wird dann verwendet, um den aktuellen Abstand zum vorausfahrenden Fahrzeug und dessen Geschwindigkeit zu berechnen. Diese Werte werden dann gefiltert und angezeigt.
+
+![Erkennen irgendeines Objekts in der Mitte](https://raw.githubusercontent.com/TheFightAtom/Projektarbeit_ACC/master/Pictures/Beispielbild_Erkennung2.jpg)
+In der zweiten Variante, bei der die Objekterkennung integriert ist, werden die Lidardaten mit den erkannten Objekten der Kamera kombiniert. Jedes erkannte Objekt wird auf mögliche zugehörige Lidarpunkte überprüft, um die genaue Position und Entfernung zu bestimmen. Diese Datenfusion ermöglicht eine genauere Erkennung und Verfolgung der Objekte. Auch hier wird das beste Cluster aus den erkannten Fahrzeugen ausgewählt und weiterverarbeitet.
 
 ![Erkennen eines Fahrzeugs](https://raw.githubusercontent.com/TheFightAtom/Projektarbeit_ACC/master/Pictures/Beispielbild_Erkennung1.jpg)
-
 
 Ein wichtiger Schritt in beiden Varianten ist die Transformation der Lidarpunkte in das Kamerakoordinatensystem, die mit der zuvor beschriebenen Funktion transform_and_project_lidar_points durchgeführt wird und die korrekte Zuordnung der Punkte sicherstellt.
 
@@ -157,9 +159,9 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc0OTE2NTcxLDE2Mjk0Mjk4ODUsNjkxNz
-gyNDg5LDE2NzUyNjY2MTYsNTI3NzQyNTMyLC0xNTg1MTU5MTQ4
-LC0xNTc2MTIxMDkyLDI4MzE1MjQ3LC0xODQxMTM1Mzk0LDE2ND
-c3NTE4OCwtMTQ1Njk5ODE5MSwyNTQwNjM2OTIsLTE4MDQyMDY3
-MTIsLTI0NDY0MTc0MywtMTEzMzI2MTAwMV19
+eyJoaXN0b3J5IjpbMTcyMzE1NDM3NSwxNjI5NDI5ODg1LDY5MT
+c4MjQ4OSwxNjc1MjY2NjE2LDUyNzc0MjUzMiwtMTU4NTE1OTE0
+OCwtMTU3NjEyMTA5MiwyODMxNTI0NywtMTg0MTEzNTM5NCwxNj
+Q3NzUxODgsLTE0NTY5OTgxOTEsMjU0MDYzNjkyLC0xODA0MjA2
+NzEyLC0yNDQ2NDE3NDMsLTExMzMyNjEwMDFdfQ==
 -->
