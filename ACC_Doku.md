@@ -11,7 +11,7 @@ christopher.bautz@hm.edu
 
 
 
-# Einleitung
+# 1. Einleitung
 
 
 In diesem Projekt wird ein System entwickelt, das die Daten eines Lidarsensors mit Kamerabildern kombiniert, um die Erkennung und Verfolgung von Objekten in Echtzeit zu verbessern. Diese Fusion verschiedener Sensordaten ist besonders für autonome Fahrzeuge nützlich, da sie eine robustere und genauere Erkennung der Umgebung ermöglicht. Dies wird durch die Stärken der einzelnen Sensoren erreicht: Lidar liefert präzise Abstandsmessungen, während Kameras detaillierte visuelle Informationen liefern.
@@ -23,19 +23,23 @@ Die Integration dieser Sensoren erfolgt durch eine Kombination von ROS-Nachricht
 Diese Dokumentation beschreibt die Implementierung des Systems, die verwendeten Algorithmen zur Sensorfusion und die durchgeführten Tests zur Validierung der Ergebnisse. Ziel ist die Entwicklung eines zuverlässigen und effizienten Objekterkennungssystems für autonome Modellfahrzeuge.
 
 
-# ACC / Integration Lidar / Fusion Lidar mit Kamera
+# 2. ACC / Integration Lidar / Fusion Lidar mit Kamera
 
-Text
+~~Dieses Kapitel beschreibt die verschiedenen Aspekte der Implementierung der ACC/Lidar/Kamera Funktionen für das autonome Modellfahrzeug. Es werden die einzelnen Komponenten des Systems detailliert erläutert, einschließlich ihrer Initialisierung, der Lidar-Punkt-Projektion, der Mittellinienerkennung, der Streckenbegrenzung, der Geschwindigkeitsberechnung, der Visualisierung, der Objekterkennung, der Kalibrierung und schließlich der Integration all dieser Komponenten im Gesamtsystem.~~
 
-## Unterüberschrift 1
+## 2.1 Initialisierungen
 
-Text
+Dieses Unterkapitel behandelt die Initialisierung der ROS-Knoten, die Einrichtung der verschiedenen Abonnements und Veröffentlichungen sowie die Definition der Callback-Funktionen. Es wird beschrieben, wie die verschiedenen Sensoren (Lidar, Kamera, etc.) konfiguriert und eingebunden werden. Zudem wird erläutert, wie die Kamerainformationen periodisch veröffentlicht werden, um die Kalibrierung und Synchronisation zwischen den Sensoren zu unterstützen.
 
-## Unterüberschrift 1
+## 2.2 Lidar-Punkt-Projektion
 
-Text
+Hier wird die Projektion der Lidar-Punkte auf die Bildebene der Kamera erläutert. Dieser Prozess umfasst die Transformation der Lidar-Daten in das Kamerakoordinatensystem und die Anwendung einer Kalibrierungsfunktion, um die Punkte korrekt zu skalieren und zu positionieren. Diese Projektion ist entscheidend für die Fusion der Sensordaten und die nachfolgende Verarbeitung.
 
-# Radar Test
+
+
+
+
+# 3. Radar Test
 
 Im Rahmen dieses Projektes wurde das Radar der Firma RadarIQ getestet und auf seine Eignung für unsere Anwendung geprüft. Das Radar bietet grundsätzlich vielversprechende Möglichkeiten zur Objekterkennung und -verfolgung. Allerdings traten bei der Integration in unser System erhebliche Probleme auf, die insbesondere auf die mangelnde Unterstützung durch den Hersteller zurückzuführen sind.
 
@@ -50,7 +54,7 @@ Die Testergebnisse zeigten, dass das Radar in der Lage ist, Objekte in seiner Um
 Zusammenfassend lässt sich sagen, dass das Radar zwar prinzipiell für unsere Anwendung geeignet wäre, aber die fehlende Unterstützung und die damit verbundenen technischen Herausforderungen eine vollständige Integration in unser System problematisch machen. Zukünftige Arbeiten sollten daher entweder auf eine Lösung zur Integration des Radars in ROS abzielen oder alternative Radarsysteme mit besserer Unterstützung und Dokumentation in Betracht ziehen.
 
 
-# Fazit und Ausblick
+# 4. Fazit und Ausblick
 
 In diesem Projekt wurde erfolgreich demonstriert, wie die Lidar-Technologie effektiv bei der Entwicklung autonomer Fahrzeuge eingesetzt werden kann. Lidar spielte eine zentrale Rolle bei der Erfassung und Verarbeitung von Umgebungsdaten, die für verschiedene Aspekte der Fahrzeugnavigation und -steuerung von entscheidender Bedeutung sind.
 
@@ -62,6 +66,7 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTY5OTgxOTEsMjU0MDYzNjkyLC0xOD
-A0MjA2NzEyLC0yNDQ2NDE3NDMsLTExMzMyNjEwMDFdfQ==
+eyJoaXN0b3J5IjpbMTQ2MzM5MjY5OSwtMTQ1Njk5ODE5MSwyNT
+QwNjM2OTIsLTE4MDQyMDY3MTIsLTI0NDY0MTc0MywtMTEzMzI2
+MTAwMV19
 -->
