@@ -60,7 +60,7 @@ Zusammen ermöglichen diese Schritte eine präzise und zuverlässige Projektion 
 
 ## 2.3 Mittellinienerkennung
 
-Die Mittellinienerkennung ist ein wichtiger Bestandteil des Systems, der die Erkennung und Verfolgung der Fahrspur ermöglicht. Diese Funktion dient dazu, eine erkannte Mittellinie zu verarbeiten und daraus die seitlichen Begrenzungslinien der Fahrspur abzuleiten. Zum Zeitpunkt der Einreichung des Projekts wird die Mittellinie direkt verwendet, sie könnte jedoch in Zukunft durch die Erkennung der Seitenlinien ersetzt werden, um eine genauere und robustere Spurführung zu ermöglichen.
+Die Mittellinienerkennung ist ein wichtiger Bestandteil des Systems, der die Erkennung und Verfolgung der Fahrspur ermöglicht. , um die von den Lidarsensoren erfassten Punkte zu analysieren und sicherzustellen, dass sie sich innerhalb der Fahrspur befinden. Diese Funktion dient dazu, eine erkannte Mittellinie zu verarbeiten und daraus die seitlichen Begrenzungslinien der Fahrspur abzuleiten. Zum Zeitpunkt der Einreichung des Projekts wird die Mittellinie direkt verwendet, sie könnte jedoch in Zukunft durch die Erkennung der Seitenlinien ersetzt werden, um eine genauere und robustere Spurführung zu ermöglichen.
 
 Der Prozess beginnt mit der Aktualisierung der Mittellinie auf Basis der eingehenden Sensordaten. Dabei spielt die Funktion update_boundaries die Hauptrolle. Sie nimmt die Koordinaten der Mittellinie (x_ref und y_ref) als Eingabe und verarbeitet diese, um die vollständige Mittellinie und die seitlichen Begrenzungen zu bestimmen. Die Punkte der Mittellinie werden extrapoliert, um eine längere Strecke abzudecken und eine kontinuierliche Spurführung zu gewährleisten.
 
@@ -131,8 +131,8 @@ Der entwickelte Code bietet eine solide Grundlage für die weitere Optimierung u
 
 Insgesamt zeigt dieses Projekt, dass die Lidar-Technologie ein wesentlicher Bestandteil autonomer Fahrzeugsysteme ist. Durch die kontinuierliche Weiterentwicklung und Optimierung des Codes sowie die Integration zusätzlicher Sensoren und Algorithmen kann die Leistungsfähigkeit und Sicherheit autonomer Fahrzeuge weiter gesteigert werden.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2MDY0OTE3NCwtMTU4NTE1OTE0OCwtMT
-U3NjEyMTA5MiwyODMxNTI0NywtMTg0MTEzNTM5NCwxNjQ3NzUx
-ODgsLTE0NTY5OTgxOTEsMjU0MDYzNjkyLC0xODA0MjA2NzEyLC
-0yNDQ2NDE3NDMsLTExMzMyNjEwMDFdfQ==
+eyJoaXN0b3J5IjpbNTI1MTI4MDcxLC0xNTg1MTU5MTQ4LC0xNT
+c2MTIxMDkyLDI4MzE1MjQ3LC0xODQxMTM1Mzk0LDE2NDc3NTE4
+OCwtMTQ1Njk5ODE5MSwyNTQwNjM2OTIsLTE4MDQyMDY3MTIsLT
+I0NDY0MTc0MywtMTEzMzI2MTAwMV19
 -->
