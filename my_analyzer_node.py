@@ -11,7 +11,7 @@ import transformations
 import cv2
 from cv_bridge import CvBridge, CvBridgeError
 import tf2_ros
-import tf2_geometry_msgs # sudo apt install ros-noetic-tf2-geometry-msgs
+import tf2_geometry_msgs # Bei fehldender Datei: sudo apt install ros-noetic-tf2-geometry-msgs
 from scipy.optimize import curve_fit
 import csv
 
@@ -21,6 +21,13 @@ class AnalyzerNode:
     def __init__(self):
         rospy.init_node("analyzer_node", anonymous=True)
         rospy.loginfo("ROS Lidar Analyzer started!")
+
+        #
+        # Einstellungen / Versionen
+        #
+        self.use_cluster_code_without_detection = True  # Flag zum manuellen Einschalten des Standalone Codes falls Objekterkennung NICHT verwendet werden soll (True läuft stabil)
+        self.use_boundry_code_without_detection = True # Flag zum manuellen Einschalten des Standalone Codes falls Linienerkennung NICHT verwendet werden soll (True läuft stabil)
+        self.calibrate_fusion_on = False # Flag zum aktivieren der Kalibrierfunktionen (wird bei großen Änderungen oder Umbauten benötigt)
         
         #
         # Subscriber
@@ -29,7 +36,7 @@ class AnalyzerNode:
         self.path_sub = rospy.Subscriber('/path', Path, self.boundary_callback) # Mittellinie sub (in Zukunft eig. Seitenlinien mit boundary_sub)
         self.camera_sub = rospy.Subscriber("/camera/color/image_jpeg", CompressedImage, self.camera_callback, queue_size=1)
         self.multiarray_sub = rospy.Subscriber("/yolo/multi_array", Float32MultiArray, self.multiarray_callback, queue_size=1)
-        self.own_speed_sub = rospy.Subscriber("/current_speed", Float32, self.speed_callback)  # Bekommt die Geschwindigkeit des eigenen Fahrzeugs (TODO: Implementieren)
+        self.own_speed_sub = rospy.Subscriber("/current_speed", Float32, self.speed_callback)  # Bekommt die Geschwindigkeit des eigenen Fahrzeugs (TODO: Prüfen ob der Name stimmt)
         #self.boundary_sub = rospy.Subscriber("/track_boundaries", PointCloud, self.boundary_callback)  # Bekommt die Streckenbegrenzung (gibts noch nicht)
 
         #
@@ -52,15 +59,13 @@ class AnalyzerNode:
         #
 
         # Für die Objekterkennung
-        self.use_cluster_code_without_detection = False  # Flag zum manuellen Einschalten des Standalone Codes HIER KANN GEÄNDERT WERDEN
         self.detected_objects = []  # Initialisiere detected_objects als leere Liste
 
         # Für die Linien
-        self.use_boundry_code_without_detection = False # Flag zum manuellen Einschalten des Standalone Codes HIER KANN GEÄNDERT WERDEN
         self.middle_line = []  # Mittellinie
         self.left_boundary = []  # Linke Streckenbegrenzung
         self.right_boundary = []  # Rechte Streckenbegrenzung
-        self.middle_line_available = False  # Flag, um zu überprüfen, ob die Mittellinie verfügbar ist: Soll immer False, wird True wenn es so ist!!!
+        self.middle_line_available = False  # Flag, um zu überprüfen, ob die Mittellinie verfügbar ist, Standard False
 
         # Fake Werte für Mittellinie zum Testen
         if False:
@@ -76,7 +81,7 @@ class AnalyzerNode:
         
         self.track_boundaries = []  # Dynamisch aktualisierte Streckenbegrenzungen
 
-        self.own_speed = 0.0  # Fake Wert zum testen - Eigene Geschwindigkeit in m/s TODO: Ändern
+        self.own_speed = 0.0  # Initialisieren der eigenen Geschwindigkeit
 
         self.real_lidar_data = None
         self.last_lidar_receive_time = None  # Time when the last lidar data was received
@@ -95,7 +100,7 @@ class AnalyzerNode:
 
         
         # Initialisierung der Kalibrierungsdaten
-        if False:
+        if self.calibrate_fusion_on:
             self.known_distances = []
             self.observed_offsets = []
             self.accuracy_data = []
@@ -166,7 +171,7 @@ class AnalyzerNode:
  
     # Callback der eigenen Geschwindigkeit
     def speed_callback(self, data):
-        self.own_speed = 0 #data # TODO: soll data
+        self.own_speed = data if data else 0.0
 
     # Callback des Lidars - setzt zudem die Zeit des letzten Lidaraufrufs
     def lidar_callback(self, data):
@@ -354,7 +359,7 @@ class AnalyzerNode:
 
         # Linke und rechte Begrenzungslinien basierend auf der Mittellinie erstellen
         for x, y in self.middle_line:
-            left_y = y - 0.5 #TODO: Wieder auf 0.25 oder so ändern (auch y)
+            left_y = y - 0.5 #TODO: Abmessen der echten Maße
             right_y = y + 0.5
 
             self.left_boundary.append((x, left_y))
@@ -573,7 +578,7 @@ class AnalyzerNode:
             return
         
         # Abbrechen wenn zu lange keine Lidar Daten empfangen wurden
-        if (rospy.Time.now() - self.last_lidar_receive_time).to_sec() > 1.0:  # TODO: Kürzer?
+        if (rospy.Time.now() - self.last_lidar_receive_time).to_sec() > 0.5:
             rospy.loginfo("Waiting for new Lidar data...")
             return
 
@@ -625,7 +630,7 @@ class AnalyzerNode:
         if use_cluster_code_without_detection:
             # Bestes Cluster wählen (das am nächsten zur Mitte liegt)
             if clusters:
-                best_cluster = min(clusters, key=lambda cl: abs(sum(pt[3] for pt in cl) / len(cl))) #TODO: Statt beste cluster zur mittellinie könnte hier das cluster verwendet werden, welches von der kamera als ein fahrzeug erkannt wurde
+                best_cluster = min(clusters, key=lambda cl: abs(sum(pt[3] for pt in cl) / len(cl))) 
                 
                 current_distance = np.mean([pt[0] for pt in best_cluster])
                 front_vehicle_speed = self.calculate_front_vehicle_speed(current_distance)
@@ -663,7 +668,8 @@ class AnalyzerNode:
                                     cv2.circle(image_with_lidar, (x, y), 5, (0, 0, 255), -1)  # Rot für bestes Cluster
 
                                     # Kalibrierungsdaten sammeln
-                                    #self.collect_calibration_data(current_distance, math.degrees(angle), pixel_coords)
+                                    if self.calibrate_fusion_on:
+                                        self.collect_calibration_data(current_distance, math.degrees(angle), pixel_coords)
                     try:
                         image_msg = self.bridge.cv2_to_imgmsg(image_with_lidar, "bgr8")
                         self.image_pub.publish(image_msg)
