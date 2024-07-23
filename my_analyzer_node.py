@@ -15,7 +15,8 @@ import tf2_geometry_msgs # Bei fehldender Datei: sudo apt install ros-noetic-tf2
 from scipy.optimize import curve_fit
 import csv
 
-
+# roslaunch mxck_run mxck_run.launch run_camera:=true run_lidar:=true run_foxglove:=true
+# rosrun acc_run my_analyzer_node.py
 
 class AnalyzerNode:
     def __init__(self):
@@ -36,7 +37,7 @@ class AnalyzerNode:
         self.path_sub = rospy.Subscriber('/path', Path, self.boundary_callback) # Mittellinie sub (in Zukunft eig. Seitenlinien mit boundary_sub)
         self.camera_sub = rospy.Subscriber("/camera/color/image_jpeg", CompressedImage, self.camera_callback, queue_size=1)
         self.multiarray_sub = rospy.Subscriber("/yolo/multi_array", Float32MultiArray, self.multiarray_callback, queue_size=1)
-        self.own_speed_sub = rospy.Subscriber("/current_speed", Float32, self.speed_callback)  # Bekommt die Geschwindigkeit des eigenen Fahrzeugs (TODO: Prüfen ob der Name stimmt)
+        self.own_speed_sub = rospy.Subscriber("/currentspeed", Float32, self.speed_callback)  # Bekommt die Geschwindigkeit des eigenen Fahrzeugs
         #self.boundary_sub = rospy.Subscriber("/track_boundaries", PointCloud, self.boundary_callback)  # Bekommt die Streckenbegrenzung (gibts noch nicht)
 
         #
@@ -49,9 +50,9 @@ class AnalyzerNode:
         self.camera_info_pub = rospy.Publisher("/camera/color/camera_info_acc", CameraInfo, queue_size=1)  # CameraInfo Publisher
         self.multiarray_with_distance_pub = rospy.Publisher("/yolo/multi_array_acc", Float32MultiArray, queue_size=1)
 
-        self.middle_line_pub = rospy.Publisher("/middle_line", Path, queue_size=1)
-        self.left_boundary_pub = rospy.Publisher("/left_boundary", Path, queue_size=1)
-        self.right_boundary_pub = rospy.Publisher("/right_boundary", Path, queue_size=1)
+        self.middle_line_pub = rospy.Publisher("/middle_line_acc", Path, queue_size=1)
+        self.left_boundary_pub = rospy.Publisher("/left_boundary_acc", Path, queue_size=1)
+        self.right_boundary_pub = rospy.Publisher("/right_boundary_acc", Path, queue_size=1)
 
 
         #
@@ -359,7 +360,7 @@ class AnalyzerNode:
 
         # Linke und rechte Begrenzungslinien basierend auf der Mittellinie erstellen
         for x, y in self.middle_line:
-            left_y = y - 0.5 #TODO: Abmessen der echten Maße
+            left_y = y - 0.5 
             right_y = y + 0.5
 
             self.left_boundary.append((x, left_y))
@@ -710,7 +711,8 @@ class AnalyzerNode:
                 # Nur loggen, wenn es sich um ein Fahrzeug handelt (object_type == 0.0)
                 for detected_obj in detected_objects_with_distances:
                     object_type, _, _, _, _, _, _ = detected_obj
-                    if self.multiarray_infos[int(object_type)] == 'car':
+                    # if self.multiarray_infos[int(object_type)] == 'car':
+                    if object_type == 0.0:
                         rospy.loginfo(f'Current distance to the vehicle in front: {current_distance:.2f} meters')
                         rospy.loginfo(f'Current speed of the vehicle in front: {front_vehicle_speed:.2f} m/s')
                         break
